@@ -3,10 +3,10 @@
 _player::_player()
 {
     //ctor
-    vert[0].x = -0.5; vert[0].y = -0.5; vert[0].z = -1.0;
-    vert[1].x = 0.5; vert[1].y = -0.5; vert[1].z = -1.0;
-    vert[2].x = 0.5; vert[2].y = 0.5; vert[2].z = -1.0;
-    vert[3].x = -0.5; vert[3].y = 0.5; vert[3].z = -1.0;
+    vert[0].x = -1.0; vert[0].y = -1.0; vert[0].z = -1.0;
+    vert[1].x = 1.0; vert[1].y = -1.0; vert[1].z = -1.0;
+    vert[2].x = 1.0; vert[2].y = 1.0; vert[2].z = -1.0;
+    vert[3].x = -1.0; vert[3].y = 1.0; vert[3].z = -1.0;
 }
 
 _player::~_player()
@@ -29,8 +29,8 @@ void _player::playerInit(float X, float Y)
     uFlag = dFlag = rFlag = lFlag = false;
 
     facingDirection = RIGHT;
-    compTrigger = STAND;
-    prevTrigger = STAND;
+    //compTrigger = STAND;
+    //prevTrigger = STAND;
 
     playerScale.x = 0.5;
     playerScale.y = 0.5;
@@ -163,119 +163,125 @@ void _player::actions()
         //*
         //Walking animation using 2 frames
         case LWALK:
-            yMin = 0.0/yFrames;
-            yMax = 1.0/yFrames;
-            //6th frame
-            if(xMax < 4.4/xFrames && xMin > 3.4/xFrames){
-                xMin = 4.1/xFrames;
-                xMax = 5.0/xFrames;
-            }
-            //5th frame
-            else{
-                xMin = 3.5/xFrames;
-                xMax = 4.2/xFrames;
-            }
+            if(!isAttacking){
+                yMin = 0.0/yFrames;
+                yMax = 1.0/yFrames;
+                //6th frame
+                if(xMax < 4.4/xFrames && xMin > 3.4/xFrames){
+                    xMin = 4.1/xFrames;
+                    xMax = 5.0/xFrames;
+                }
+                //5th frame
+                else{
+                    xMin = 3.5/xFrames;
+                    xMax = 4.2/xFrames;
+                }
 
-            playerPos.x -= 0.02;                      //Leftward movement
+                //playerPos.x -= 0.02;                      //Leftward movement
 
-            if(lFlag && dFlag){
-                playerPos.y -= 0.02;                  // + Downward movement = Down Diagonal movement to the Left
-            }
-            else if(lFlag && rFlag){
-                playerPos.x += 0.02;                  // + Right movement = NO movement
+                if(lFlag && dFlag){
+                    //playerPos.y -= 0.02;                  // + Downward movement = Down Diagonal movement to the Left
+                }
+                else if(lFlag && rFlag){
+                    //playerPos.x += 0.02;                  // + Right movement = NO movement
 
-            }
-            else if(lFlag && uFlag){
-                playerPos.y += 0.02;                  // + Upward movement = Up Diagonal movement to the Left
+                }
+                else if(lFlag && uFlag){
+                    //playerPos.y += 0.02;                  // + Upward movement = Up Diagonal movement to the Left
 
+                }
             }
-            //if(ply->prevTrigger == ply->UWALK){}
             break;
 
         case RWALK:
-            yMin = 0.0/yFrames;
-            yMax = 1.0/yFrames;
-            //6th frame
-            if(xMax > 3.4/xFrames && xMin < 4.4/xFrames){
-                xMin = 5.0/xFrames;
-                xMax = 4.1/xFrames;
-            }
-            //5th frame
-            else{
-                xMin = 4.2/xFrames;
-                xMax = 3.5/xFrames;
-            }
+            if(!isAttacking){
+                yMin = 0.0/yFrames;
+                yMax = 1.0/yFrames;
+                //6th frame
+                if(xMax > 3.4/xFrames && xMin < 4.4/xFrames){
+                    xMin = 5.0/xFrames;
+                    xMax = 4.1/xFrames;
+                }
+                //5th frame
+                else{
+                    xMin = 4.2/xFrames;
+                    xMax = 3.5/xFrames;
+                }
 
-            playerPos.x += 0.02;                      //Rightward movement
+                //playerPos.x += 0.02;                      //Rightward movement
 
-            if(rFlag && dFlag){
-                playerPos.y -= 0.02;                  // + Downward movement = Down Diagonal movement to the Right
-            }
-            else if(rFlag && lFlag){
-                playerPos.x -= 0.02;                  // + Leftward movement = NO movement
+                if(rFlag && dFlag){
+                    //playerPos.y -= 0.02;                  // + Downward movement = Down Diagonal movement to the Right
+                }
+                else if(rFlag && lFlag){
+                    //playerPos.x -= 0.02;                  // + Leftward movement = NO movement
 
-            }
-            else if(rFlag && uFlag){
-                playerPos.y += 0.02;                  // + Upward movement = Up Diagonal movement to the Right
+                }
+                else if(rFlag && uFlag){
+                    //playerPos.y += 0.02;                  // + Upward movement = Up Diagonal movement to the Right
 
+                }
             }
-            //cout << "walking\n";
             break;
 
         case UWALK:
-            yMin = 0.0/yFrames;
-            yMax = 1.0/yFrames;
-            //9th frame
-            if(xMax < 6.99/xFrames && xMin > 6.02/xFrames){
-                xMin = 6.85/xFrames;
-                xMax = 7.85/xFrames;
-            }
-            //8th frame
-            else{
-                xMin = 6.03/xFrames;
-                xMax = 6.98/xFrames;
-            }
+            if(!isAttacking){
+                yMin = 0.0/yFrames;
+                yMax = 1.0/yFrames;
+                //9th frame
+                if(xMax < 6.99/xFrames && xMin > 6.02/xFrames){
+                    xMin = 6.85/xFrames;
+                    xMax = 7.85/xFrames;
+                }
+                //8th frame
+                else{
+                    xMin = 6.03/xFrames;
+                    xMax = 6.98/xFrames;
+                }
 
-            playerPos.y += 0.02;                      //Upward movement
+                //playerPos.y += 0.02;                      //Upward movement
 
-            if(uFlag && dFlag){
-                playerPos.y -= 0.02;                  // + Downward movement = NO movement
-            }
-            else if(uFlag && lFlag){
-                playerPos.x -= 0.02;                  // + Leftward movement = Up Diagonal movement to the Left
-            }
-            else if(uFlag && rFlag){
-                playerPos.x += 0.02;                  // + Rightward movement = Up Diagonal movement to the Right
+                if(uFlag && dFlag){
+                    //playerPos.y -= 0.02;                  // + Downward movement = NO movement
+                }
+                else if(uFlag && lFlag){
+                    //playerPos.x -= 0.02;                  // + Leftward movement = Up Diagonal movement to the Left
+                }
+                else if(uFlag && rFlag){
+                    //playerPos.x += 0.02;                  // + Rightward movement = Up Diagonal movement to the Right
 
+                }
             }
             break;
 
         case DWALK:
-            yMin = 0.0/yFrames;
-            yMax = 0.96/yFrames;
-            //3rd frame
-            if(xMax < 1.89/xFrames && xMin > 0.93/xFrames){
-                xMin = 1.88/xFrames;
-                xMax = 2.78/xFrames;
-            }
-            //2nd frame
-            else{
-                xMin = 0.94/xFrames;
-                xMax = 1.88/xFrames;
-            }
+            if(!isAttacking){
+                yMin = 0.0/yFrames;
+                yMax = 0.96/yFrames;
+                //3rd frame
+                if(xMax < 1.89/xFrames && xMin > 0.93/xFrames){
+                    xMin = 1.88/xFrames;
+                    xMax = 2.78/xFrames;
+                }
+                //2nd frame
+                else{
+                    xMin = 0.94/xFrames;
+                    xMax = 1.88/xFrames;
+                }
 
-            playerPos.y -= 0.02;                      //Downward movement
+                //playerPos.y -= 0.02;                      //Downward movement
 
-            if(dFlag && uFlag){
-                playerPos.y += 0.02;                  // + Upward movement = NO movement
-            }
-            else if(dFlag && lFlag){
-                playerPos.x -= 0.02;                  // + Leftward movement = Down Diagonal movement to the Left
+                if(dFlag && uFlag){
+                    //playerPos.y += 0.02;                  // + Upward movement = NO movement
+                }
+                else if(dFlag && lFlag){
+                    //playerPos.x -= 0.02;                  // + Leftward movement = Down Diagonal movement to the Left
 
-            }
-            else if(dFlag && rFlag){
-                playerPos.x += 0.02;                  // + Rightward movement = Down Diagonal movement to the Right
+                }
+                else if(dFlag && rFlag){
+                    //playerPos.x += 0.02;                  // + Rightward movement = Down Diagonal movement to the Right
 
+                }
             }
             break;
         //*/
@@ -384,7 +390,7 @@ void _player::actions()
                         }
                         else
                             actionTrigger = STAND;
-                        isAttacking = false;
+                        //isAttacking = false;
                     }
                     //1st column, second row frame
                     else{
@@ -408,7 +414,7 @@ void _player::actions()
                         }
                         else
                             actionTrigger = STAND;
-                        isAttacking = false;
+                        //isAttacking = false;
                     }
                     //1st column, second row frame Mirrored
                     else{
@@ -432,7 +438,7 @@ void _player::actions()
                         }
                         else
                             actionTrigger = STAND;
-                        isAttacking = false;
+                        //isAttacking = false;
                     }
                     //1st column, second row frame Mirrored
                     else{
@@ -456,7 +462,7 @@ void _player::actions()
                         }
                         else
                             actionTrigger = STAND;
-                        isAttacking = false;
+                        //isAttacking = false;
                     }
                     //1st column, second row frame
                     else{
@@ -488,7 +494,7 @@ void _player::actions()
                         }
                         else
                             actionTrigger = STAND;
-                        isAttacking = false;
+                        //isAttacking = false;
                     }
                     else if(xMax < 4.24/xFrames && xMin > 3.22/xFrames){
                         //5th column, 2rd row frame
@@ -516,7 +522,7 @@ void _player::actions()
                         }
                         else
                             actionTrigger = STAND;
-                        isAttacking = false;
+                        //isAttacking = false;
                     }
                     else if(xMax > 3.22/xFrames && xMin < 4.24/xFrames){
                         //5th column, 2rd row frame MIRRORED
@@ -544,7 +550,7 @@ void _player::actions()
                         }
                         else
                             actionTrigger = STAND;
-                        isAttacking = false;
+                        //isAttacking = false;
                     }
                     else if(xMax < 6.89/xFrames && xMin > 5.87/xFrames){
                         //8th column, 2rd row frame
@@ -572,7 +578,7 @@ void _player::actions()
                         }
                         else
                             actionTrigger = STAND;
-                        isAttacking = false;
+                        //isAttacking = false;
                     }
                     else if(xMax < 1.1/xFrames && xMin > -0.1/xFrames){
                         //2nd column, 2rd row frame
@@ -598,7 +604,7 @@ void _player::actions()
                     yMin = 2.0/yFrames;
                     yMax = 3.0/yFrames;
 
-                    playerPos.x = playerPos.x - 0.15;                      //Leftward movement
+                    //playerPos.x = playerPos.x - 0.15;                      //Leftward movement
 
                     /*
                     if(lFlag && rFlag){                                   //If both Left and Right Flag true then NO movement
@@ -606,11 +612,11 @@ void _player::actions()
                     }
                     else */
                     if(lFlag && dFlag){
-                        playerPos.y = playerPos.y - 0.15;                  // Leftward + Downward movement = Down Diagonal movement to the Left
+                        //playerPos.y = playerPos.y - 0.15;                  // Leftward + Downward movement = Down Diagonal movement to the Left
                         actionTrigger = LWALK;
                     }
                     else if(lFlag && uFlag){
-                        playerPos.y = playerPos.y + 0.15;                  // Leftward + Upward movement = Up Diagonal movement to the Left
+                        //playerPos.y = playerPos.y + 0.15;                  // Leftward + Upward movement = Up Diagonal movement to the Left
                         actionTrigger = LWALK;
                     }
                     else if(lFlag){
@@ -627,7 +633,7 @@ void _player::actions()
                     yMin = 2.0/yFrames;
                     yMax = 3.0/yFrames;
 
-                    playerPos.x = playerPos.x + 0.15;                      //Right movement
+                    //playerPos.x = playerPos.x + 0.15;                      //Right movement
 
                     /*
                     if(rFlag && lFlag){                                   //If both Right and Left Flag true then NO movement
@@ -635,11 +641,11 @@ void _player::actions()
                     }
                     else */
                     if(rFlag && dFlag){
-                        playerPos.y = playerPos.y - 0.15;                  // Rightward + Downward movement = Down Diagonal movement to the Right
+                        //playerPos.y = playerPos.y - 0.15;                  // Rightward + Downward movement = Down Diagonal movement to the Right
                         actionTrigger = RWALK;
                     }
                     else if(rFlag && uFlag){
-                        playerPos.y = playerPos.y + 0.15;                  // Rightward + Upward movement = Up Diagonal movement to the Right
+                        //playerPos.y = playerPos.y + 0.15;                  // Rightward + Upward movement = Up Diagonal movement to the Right
                         actionTrigger = RWALK;
                     }
                     else if(rFlag){
@@ -655,7 +661,7 @@ void _player::actions()
                     yMin = 2.0/yFrames;
                     yMax = 3.0/yFrames;
 
-                    playerPos.y = playerPos.y + 0.15;                      //Upward movement
+                    //playerPos.y = playerPos.y + 0.15;                      //Upward movement
 
                     /*
                     if(uFlag && dFlag){                                   //If both Up and Down Flag true then NO movement
@@ -663,11 +669,11 @@ void _player::actions()
                     }
                     else */
                     if(uFlag && lFlag){
-                        playerPos.x = playerPos.x - 0.15;                  // Upward + Leftward movement = Up Diagonal movement to the Left
+                        //playerPos.x = playerPos.x - 0.15;                  // Upward + Leftward movement = Up Diagonal movement to the Left
                         actionTrigger = UWALK;
                     }
                     else if(uFlag && rFlag){
-                        playerPos.x = playerPos.x + 0.15;                  // Upward + Rightward movement = Up Diagonal movement to the Right
+                        //playerPos.x = playerPos.x + 0.15;                  // Upward + Rightward movement = Up Diagonal movement to the Right
                         actionTrigger = UWALK;
                     }
                     else if(uFlag){
@@ -684,7 +690,7 @@ void _player::actions()
                     yMin = 2.0/yFrames;
                     yMax = 3.0/yFrames;
 
-                    playerPos.y = playerPos.y - 0.15;                      //Downward movement
+                    //playerPos.y = playerPos.y - 0.15;                      //Downward movement
 
                     /*
                     if(dFlag && uFlag){                                   //If both Up and Down Flag true then NO movement
@@ -692,11 +698,11 @@ void _player::actions()
                     }
                     else */
                     if(dFlag && lFlag){
-                        playerPos.x = playerPos.x - 0.15;                  // Downward + Leftward movement = Down Diagonal movement to the Left
+                        //playerPos.x = playerPos.x - 0.15;                  // Downward + Leftward movement = Down Diagonal movement to the Left
                         actionTrigger = DWALK;
                     }
                     else if(dFlag && rFlag){
-                        playerPos.x = playerPos.x + 0.15;                  // Downward + Rightward movement = Down Diagonal movement to the Right
+                        //playerPos.x = playerPos.x + 0.15;                  // Downward + Rightward movement = Down Diagonal movement to the Right
                         actionTrigger = DWALK;
                     }
                     else if(dFlag){

@@ -22,8 +22,8 @@ class _player
 
         enum {STAND, LWALK, RWALK, UWALK, DWALK, ATK, HATK, DODGE};
         int actionTrigger;
-        int compTrigger;
-        int prevTrigger;
+        //int compTrigger;
+        //int prevTrigger;
         bool isDodging, isAttacking;
         //bool onGround;
         bool uFlag, dFlag, rFlag, lFlag;
