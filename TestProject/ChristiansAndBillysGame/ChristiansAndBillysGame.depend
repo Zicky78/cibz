@@ -1,0 +1,278 @@
+# depslib dependency file v1.0
+1618898481 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_arrow.cpp
+	"_arrow.h"
+
+1618898481 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_arrow.h
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+	<math.h>
+
+1618898481 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_common.h
+	<math.h>
+
+1618900076 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_texture.h
+	<SOIL.h>
+	<GL/gl.h>
+	<iostream>
+
+1603909357 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\soil.h
+
+1619032633 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_collision.cpp
+	"_collision.h"
+
+1619033574 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_collision.h
+	<math.h>
+	<iostream>
+	<_player.h>
+	<_enemies.h>
+	<_parallax.h>
+
+1618975019 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_door.cpp
+	"_door.h"
+	"_glScene.h"
+
+1618972782 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_door.h
+	<_common.h>
+	<_texture.h>
+	<_timer.h>
+	<GL/gl.h>
+
+1618898481 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_timer.h
+	<time.h>
+
+1619038753 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_glscene.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<_input.h>
+	<_texture.h>
+	<_parallax.h>
+	<_player.h>
+	<_enemies.h>
+	<_timer.h>
+	<_fonts.h>
+	<_collision.h>
+	<_sounds.h>
+	<_menu.h>
+	<_door.h>
+
+1612228981 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\gl\glut.h
+	<windows.h>
+	<stdlib.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1618898481 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_model.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1619036366 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_input.h
+	<windows.h>
+	<_model.h>
+	<_parallax.h>
+	<_player.h>
+	<math.h>
+	<_timer.h>
+	<_enemies.h>
+	<_door.h>
+
+1619033926 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_parallax.h
+	<string>
+	<GL/gl.h>
+	<_texture.h>
+	<_common.h>
+
+1619033103 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_player.h
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+	<iostream>
+	<_timer.h>
+
+1619034372 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_enemies.h
+	<_common.h>
+	<_texture.h>
+	<_timer.h>
+	<GL/gl.h>
+
+1618898481 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_fonts.h
+	<iostream>
+	<string.h>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1618898481 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_sounds.h
+	<iostream>
+	<SNDS/irrKlang.h>
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\irrklang.h
+	"ik_irrKlangTypes.h"
+	"ik_vec3d.h"
+	"ik_IRefCounted.h"
+	"ik_IVirtualRefCounted.h"
+	"ik_ESoundOutputDrivers.h"
+	"ik_ESoundEngineOptions.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+	"ik_ISoundEngine.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_IAudioStream.h"
+	"ik_IAudioStreamLoader.h"
+	"ik_ISoundEffectControl.h"
+	"ik_ISoundStopEventReceiver.h"
+	"ik_IFileFactory.h"
+	"ik_IFileReader.h"
+	"ik_ISoundDeviceList.h"
+	"ik_IAudioRecorder.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_irrklangtypes.h
+	<wchar.h>
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_vec3d.h
+	<math.h>
+	"ik_irrKlangTypes.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_irefcounted.h
+	"ik_irrKlangTypes.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_ivirtualrefcounted.h
+	"ik_irrKlangTypes.h"
+
+1617664777 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_esoundoutputdrivers.h
+
+1617664777 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_esoundengineoptions.h
+
+1617664777 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_estreammodes.h
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_saudiostreamformat.h
+	"ik_IRefCounted.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_isoundengine.h
+	"ik_IRefCounted.h"
+	"ik_vec3d.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_EStreamModes.h"
+	"ik_IFileFactory.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_isoundsource.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_isound.h
+	"ik_IVirtualRefCounted.h"
+	"ik_ISoundEffectControl.h"
+	"ik_vec3d.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_isoundeffectcontrol.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_ifilefactory.h
+	"ik_IRefCounted.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_isoundmixedoutputreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617664777 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_iaudiostream.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617664777 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_iaudiostreamloader.h
+	"ik_IRefCounted.h"
+	"ik_IFileReader.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_ifilereader.h
+	"ik_IRefCounted.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_isoundstopeventreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1617664778 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_isounddevicelist.h
+	"ik_IRefCounted.h"
+
+1617664777 c:\users\billy\onedrive\desktop\csci191gamesdev\common\include\snds\ik_iaudiorecorder.h
+	"ik_IRefCounted.h"
+	"ik_ISoundSource.h"
+
+1618899891 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_menu.h
+	<iostream>
+	<string>
+	<gl/gl.h>
+	<windows.h>
+	<_texture.h>
+
+1619034582 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_enemies.cpp
+	"_enemies.h"
+
+1619035012 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_fonts.cpp
+	"_fonts.h"
+
+1618898481 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_gllight.cpp
+	"_glLight.h"
+
+1618898481 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_gllight.h
+	<_glScene.h>
+
+1619039409 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_glscene.cpp
+	"_glScene.h"
+	<_glLight.h>
+	<SOIL.h>
+
+1619036366 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_input.cpp
+	"_input.h"
+
+1618903294 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_menu.cpp
+	"_menu.h"
+
+1618898481 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_model.cpp
+	"_model.h"
+
+1618625700 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_onscreenbuttons.cpp
+	"_onScreenButtons.h"
+
+1618625700 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_onscreenbuttons.h
+	<GL/gl.h>
+	<_common.h>
+	<_texture.h>
+	<string>
+
+1618959697 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\main.cpp
+	<windows.h>
+	<_glScene.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1619033926 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_parallax.cpp
+	"_parallax.h"
+
+1618898481 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_particles.cpp
+	"_particles.h"
+
+1618898481 c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\include\_particles.h
+	<math.h>
+
+1619033545 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_player.cpp
+	"_player.h"
+
+1618904494 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_sounds.cpp
+	"_sounds.h"
+
+1618900053 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_texture.cpp
+	"_texture.h"
+
+1618898481 source:c:\users\billy\onedrive\desktop\csci191gamesdev\christiansandbillysgame\src\_timer.cpp
+	"_timer.h"
+
