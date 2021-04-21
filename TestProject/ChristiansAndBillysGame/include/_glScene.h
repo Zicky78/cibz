@@ -15,6 +15,7 @@
 #include <_sounds.h>
 #include <_menu.h>
 #include <_door.h>
+#include <_items.h>
 
 using namespace std;
 
@@ -41,6 +42,7 @@ class _glScene
         _collision *collided = new _collision();
         _sounds *snds = new _sounds();
         _door *door = new _door();
+        _items *items = new _items();
 
         bool doneLoading;
         bool liveLevel1;

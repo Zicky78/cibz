@@ -9,6 +9,8 @@ _input::_input()
     //ctor
 
     tmr->startTimer();
+
+    playSound = true;
 }
 
 _input::~_input()
@@ -16,7 +18,7 @@ _input::~_input()
     //dtor
 }
 
-void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEnem, float speed, _door* door)
+void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], _items* item, int numOfEnem, float speed, _door* door)
 {
     //cout << "wParam: " << wParam << endl;
     switch(wParam)
@@ -34,6 +36,10 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
             plx->lFlag = true;
             plx->rFlag = false;
 
+            //Item
+            item->lFlag = true;
+            item->rFlag = false;
+
             //Door
             door->lFlag = true;
             door->rFlag = false;
@@ -44,6 +50,10 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
                 enem[i].rFlag = false;
             }
         }
+        if(playSound) {
+                snds->playSounds("sounds/footsteps.wav");
+                playSound = false;
+            }
         break;
 
     case 68:
@@ -59,6 +69,10 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
             plx->rFlag = true;
             plx->lFlag = false;
 
+            //Item
+            item->rFlag = true;
+            item->lFlag = false;
+
             //Door
             door->rFlag = true;
             door->lFlag = false;
@@ -69,6 +83,10 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
                 enem[i].lFlag = false;
             }
         }
+        if(playSound) {
+                snds->playSounds("sounds/footsteps.wav");
+                playSound = false;
+            }
         break;
 
     case 87:
@@ -84,6 +102,10 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
             plx->uFlag = true;
             plx->dFlag = false;
 
+            //Item
+            item->uFlag = true;
+            item->dFlag = false;
+
             //Parallax
             door->uFlag = true;
             door->dFlag = false;
@@ -94,6 +116,10 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
                 enem[i].dFlag = false;
             }
         }
+        if(playSound) {
+                snds->playSounds("sounds/footsteps.wav");
+                playSound = false;
+            }
         break;
 
     case 83:
@@ -107,6 +133,10 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
             plx->dFlag = true;
             plx->uFlag = false;
 
+            //Item
+            item->dFlag = true;
+            item->uFlag = false;
+
             //Door
             door->dFlag = true;
             door->uFlag = false;
@@ -118,6 +148,10 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
                 enem[i].uFlag = false;
             }
         }
+        if(playSound) {
+                snds->playSounds("sounds/footsteps.wav");
+                playSound = false;
+            }
         break;
 
     case VK_SPACE:
@@ -128,6 +162,9 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
                 ply->actionTrigger = ply->DODGE;
                 //Parallax
                 plx->isDodging = true;
+
+                //Item
+                item->isDodging = true;
 
                 //Door
                 door->isDodging = true;
@@ -150,6 +187,9 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
         //Parallax
         plx->isAttacking = true;
 
+        //Item
+        item->isAttacking = true;
+
         //Door
         door->isAttacking = true;
         break;
@@ -162,13 +202,16 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], int numOfEne
         //Parallax
         plx->isAttacking = true;
 
+        //Item
+        item->isAttacking = true;
+
         //Door
         door->isAttacking = true;
         break;
     }
 }
 
-void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem, _door* door)
+void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], _items* item, int numOfEnem, _door* door)
 {
     cout << "Key Up wParam: " << wParam << endl;
 
@@ -179,6 +222,9 @@ void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem,
         //cout << "reset lflags\n";
         ply->lFlag = false;
         plx->lFlag = false;
+
+        //Item
+        item->lFlag = false;
 
         //Door
         door->lFlag = false;
@@ -208,6 +254,9 @@ void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem,
         ply->rFlag = false;
         plx->rFlag = false;
 
+        //Item
+        item->rFlag = false;
+
         //Door
         door->rFlag = false;
 
@@ -235,6 +284,9 @@ void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem,
         //cout << "reset uflags\n";
         ply->uFlag = false;
         plx->uFlag = false;
+
+        //Item
+        item->uFlag = false;
 
         //Door
         door->uFlag = false;
@@ -264,6 +316,9 @@ void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem,
         ply->dFlag = false;
         plx->dFlag = false;
 
+        //Item
+        item->dFlag = false;
+
         //Door
         door->dFlag = false;
 
@@ -291,6 +346,9 @@ void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem,
 
         plx->isAttacking = false;
 
+        //Item
+        item->isAttacking = false;
+
         //Door
         door->isAttacking = false;
 
@@ -301,6 +359,9 @@ void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem,
 
         plx->isAttacking = false;
 
+        //Item
+        item->isAttacking = false;
+
         //Door
         door->isAttacking = false;
 
@@ -310,6 +371,9 @@ void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem,
     ply->isDodging = false;
     plx->isDodging = false;
 
+    //Item
+    item->isDodging = false;
+
     //Door
     door->isDodging = false;
 
@@ -317,6 +381,10 @@ void _input::keyUp(_player* ply, _parallax* plx, _enemies enem[], int numOfEnem,
         enem[j].isDodging = false;
     }
     //cout << "reset all flags\n";
+    if(!ply->lFlag && !ply->rFlag && !ply->uFlag && !ply->dFlag) {
+        snds->stopAllSounds();
+        playSound = true;
+    }
 }
 
 void _input::mouseDown(_player* ply, _parallax* plx, float x, float y, _door* door)

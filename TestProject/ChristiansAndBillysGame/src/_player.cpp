@@ -53,6 +53,7 @@ void _player::playerInit(float X, float Y)
     health = 10;
     lightDmg = 1;
     HeavyDmg = 2;
+    speedMulti = 1.0;
     invulnerable = false;
     plyTimer->startTimer();
 }

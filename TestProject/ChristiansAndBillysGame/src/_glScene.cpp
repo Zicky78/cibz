@@ -60,6 +60,22 @@ GLint _glScene::initGL()
     fnts->initFonts("images/fantasyfont.png");
     fnts->buildFont(" ]Level 1]", 9.0);
 
+    items->itemInit(8.0, 1.0);
+    switch(items->itemType) {
+    case 0:
+        cout << "0 item"<< endl;
+        items->itemImage->loadTexture("images/light.png");
+        break;
+    case 1:
+        cout << "1 item"<< endl;
+        items->itemImage->loadTexture("images/attack.png");
+        break;
+    case 2:
+        cout << "2 item" << endl;
+        items->itemImage->loadTexture("images/speed.png");
+        break;
+    }
+
     numOfEnms = 5;
     texEnms->loadTexture("images/zombie_n_skeleton2.png");
     for(int i = 0; i < numOfEnms; i++){
@@ -157,18 +173,51 @@ GLint _glScene::drawScene()
     glPushMatrix();
         glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, backGroundLevel1->plxTexture->tex);
-        backGroundLevel1->scroll(0.0009);//0.005
+        backGroundLevel1->scroll(0.0009* myPly->speedMulti);//0.005
         backGroundLevel1->renderBack(screenWidth, screenHeight);
     glPopMatrix();
 
     //backGround1->scroll(false, "left", 0.003);
+
+    glPushMatrix();
+        glBindTexture(GL_TEXTURE_2D, items->itemImage->tex);
+        if(items->notPickedUp){
+            items->itemScroll(0.007 * myPly->speedMulti);
+            items->drawItem();
+        }
+
+        if(items->iT->getTicks() > 100) {
+        items->xMin += 1.0/8.0;
+        items->xMax += 1.0/8.0;
+
+        if(collided->detectItem(myPly->playerPos.x, myPly->playerPos.y, myPly->radiusPlayer, items->itemPos.x, items->itemPos.y, items->itemRadius) && items->notPickedUp) {
+            switch(items->itemType) {
+            case 0:
+                backGround1->parallaxInit("images/visibility2.png");
+                items->notPickedUp = false;
+                cout << "LIGHT" << endl;
+                break;
+            case 1:
+                myPly->lightDmg += 1.0;
+                myPly->HeavyDmg += 1.0;
+                items->notPickedUp = false;
+                break;
+            case 2:
+                myPly->speedMulti += 1.0;
+                items->notPickedUp = false;
+                break;
+            }
+        }
+        items->iT->resetTime();
+        }
+    glPopMatrix();
 
     //Door
     glPushMatrix();
         glScalef(0.5, 0.5, 1.0);
         door->tex = texDoor->tex;
 
-        door->scroll(0.007); //0.005
+        door->scroll(0.007 * myPly->speedMulti); //0.005
 
         door->placeEnms(door->posE);
         door->moveCausedByPlayer();
@@ -244,8 +293,8 @@ GLint _glScene::drawScene()
                 enms[i].moveCausedByPlayer();
             }
 
-            enms[i].posE.x += (enms[i].xSpeed + enms[i].xSpeed2);           //Enemy Total X movement
-            enms[i].posE.y += (enms[i].ySpeed + enms[i].ySpeed2);           //Enemy Total Y movement
+            enms[i].posE.x += (enms[i].xSpeed + (enms[i].xSpeed2* myPly->speedMulti));           //Enemy Total X movement
+            enms[i].posE.y += (enms[i].ySpeed + (enms[i].ySpeed2* myPly->speedMulti));           //Enemy Total Y movement
             //if(myPly->playerPos)
 
             enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
@@ -277,11 +326,44 @@ GLint _glScene::drawScene()
     glPushMatrix();
         glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, backGroundLevel2->plxTexture->tex);
-        backGroundLevel2->scroll(0.0009);//0.005
+        backGroundLevel2->scroll(0.0009* myPly->speedMulti);//0.005
         backGroundLevel2->renderBack(screenWidth, screenHeight);
     glPopMatrix();
 
     //backGround1->scroll(false, "left", 0.003);
+
+    glPushMatrix();
+        glBindTexture(GL_TEXTURE_2D, items->itemImage->tex);
+        if(items->notPickedUp){
+            items->itemScroll(0.007 * myPly->speedMulti);
+            items->drawItem();
+        }
+
+        if(items->iT->getTicks() > 100) {
+        items->xMin += 1.0/8.0;
+        items->xMax += 1.0/8.0;
+
+        if(collided->detectItem(myPly->playerPos.x, myPly->playerPos.y, myPly->radiusPlayer, items->itemPos.x, items->itemPos.y, items->itemRadius) && items->notPickedUp) {
+            switch(items->itemType) {
+            case 0:
+                backGround1->parallaxInit("images/visibility2.png");
+                items->notPickedUp = false;
+                cout << "LIGHT" << endl;
+                break;
+            case 1:
+                myPly->lightDmg += 1.0;
+                myPly->HeavyDmg += 1.0;
+                items->notPickedUp = false;
+                break;
+            case 2:
+                myPly->speedMulti += 1.0;
+                items->notPickedUp = false;
+                break;
+            }
+        }
+        items->iT->resetTime();
+        }
+    glPopMatrix();
 
     //Player
     glPushMatrix();
@@ -323,8 +405,8 @@ GLint _glScene::drawScene()
 
         enms[i].moveCausedByPlayer();                                   //Enemy moving in relation to Player movements: setting values for xSpeed2 and ySpeed2
         enms[i].randAction();                                           //Random Enemy movement: setting values for xSpeed and ySpeed
-        enms[i].posE.x += (enms[i].xSpeed + enms[i].xSpeed2);           //Enemy Total X movement
-        enms[i].posE.y += (enms[i].ySpeed + enms[i].ySpeed2);           //Enemy Total Y movement
+        enms[i].posE.x += (enms[i].xSpeed + (enms[i].xSpeed2* myPly->speedMulti));           //Enemy Total X movement
+        enms[i].posE.y += (enms[i].ySpeed + (enms[i].ySpeed2* myPly->speedMulti));           //Enemy Total Y movement
         if(myPly->isAttacking && myPly->playerPos.x){
             if(collided->detectCollision(myPly->playerPos.x, myPly->playerPos.y, myPly->radiusPlayer,
                                           enms[i].posE.x, enms[i].posE.y, enms[i].enemyRadius));
@@ -359,11 +441,44 @@ GLint _glScene::drawScene()
     glPushMatrix();
         glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, backGroundLevel3->plxTexture->tex);
-        backGroundLevel3->scroll(0.0009);//0.005
+        backGroundLevel3->scroll(0.0009 * myPly->speedMulti);//0.005
         backGroundLevel3->renderBack(screenWidth, screenHeight);
     glPopMatrix();
 
     //backGround1->scroll(false, "left", 0.003);
+
+    glPushMatrix();
+        glBindTexture(GL_TEXTURE_2D, items->itemImage->tex);
+        if(items->notPickedUp){
+            items->itemScroll(0.007 * myPly->speedMulti);
+            items->drawItem();
+        }
+
+        if(items->iT->getTicks() > 100) {
+        items->xMin += 1.0/8.0;
+        items->xMax += 1.0/8.0;
+
+        if(collided->detectItem(myPly->playerPos.x, myPly->playerPos.y, myPly->radiusPlayer, items->itemPos.x, items->itemPos.y, items->itemRadius) && items->notPickedUp) {
+            switch(items->itemType) {
+            case 0:
+                backGround1->parallaxInit("images/visibility2.png");
+                items->notPickedUp = false;
+                cout << "LIGHT" << endl;
+                break;
+            case 1:
+                myPly->lightDmg += 1.0;
+                myPly->HeavyDmg += 1.0;
+                items->notPickedUp = false;
+                break;
+            case 2:
+                myPly->speedMulti += 1.0;
+                items->notPickedUp = false;
+                break;
+            }
+        }
+        items->iT->resetTime();
+        }
+    glPopMatrix();
 
     //Player
     glPushMatrix();
@@ -405,8 +520,8 @@ GLint _glScene::drawScene()
 
         enms[i].moveCausedByPlayer();                                   //Enemy moving in relation to Player movements: setting values for xSpeed2 and ySpeed2
         enms[i].randAction();                                           //Random Enemy movement: setting values for xSpeed and ySpeed
-        enms[i].posE.x += (enms[i].xSpeed + enms[i].xSpeed2);           //Enemy Total X movement
-        enms[i].posE.y += (enms[i].ySpeed + enms[i].ySpeed2);           //Enemy Total Y movement
+        enms[i].posE.x += (enms[i].xSpeed + (enms[i].xSpeed2* myPly->speedMulti));           //Enemy Total X movement
+        enms[i].posE.y += (enms[i].ySpeed + (enms[i].ySpeed2* myPly->speedMulti));           //Enemy Total Y movement
         if(myPly->isAttacking && myPly->playerPos.x){
             if(collided->detectCollision(myPly->playerPos.x, myPly->playerPos.y, myPly->radiusPlayer,
                                           enms[i].posE.x, enms[i].posE.y, enms[i].enemyRadius));
@@ -472,18 +587,18 @@ int _glScene::winMsg(	HWND	hWnd,			// Handle For This Window
 		{
 		    //kbMs->keyPressed(myPly);
             //for(int j = 0; j < numOfEnms; j++)
-            kbMs->moveEnv(backGroundLevel1, myPly, enms, numOfEnms, 0.005, door);
-            kbMs->moveEnv(backGroundLevel2, myPly, enms, numOfEnms, 0.005, door);
-            kbMs->moveEnv(backGroundLevel3, myPly, enms, numOfEnms, 0.005, door);
+            kbMs->moveEnv(backGroundLevel1, myPly, enms, items, numOfEnms, 0.005*myPly->speedMulti, door);
+            kbMs->moveEnv(backGroundLevel2, myPly, enms, items, numOfEnms, 0.005*myPly->speedMulti, door);
+            kbMs->moveEnv(backGroundLevel3, myPly, enms, items, numOfEnms, 0.005*myPly->speedMulti, door);
 		    //kbMs->spotLight(backGround1, myPly);
 			break;
 		}
 
 		case WM_KEYUP:								// Has A Key Been Released?
 		{
-            kbMs->keyUp(myPly, backGroundLevel1, enms, numOfEnms, door); //add door
-            kbMs->keyUp(myPly, backGroundLevel2, enms, numOfEnms, door);
-            kbMs->keyUp(myPly, backGroundLevel3, enms, numOfEnms, door);
+            kbMs->keyUp(myPly, backGroundLevel1, enms, items, numOfEnms, door); //add door
+            kbMs->keyUp(myPly, backGroundLevel2, enms, items, numOfEnms, door);
+            kbMs->keyUp(myPly, backGroundLevel3, enms, items, numOfEnms, door);
             break;
 		}
 

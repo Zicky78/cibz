@@ -28,6 +28,7 @@ class _player
         int health;
         int lightDmg;
         int HeavyDmg;
+        float speedMulti;
         bool invulnerable;
 
         vec2 dodgePos;
