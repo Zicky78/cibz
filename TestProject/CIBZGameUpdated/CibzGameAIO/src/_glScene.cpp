@@ -109,7 +109,7 @@ GLint _glScene::initGL()
         enms[i].posE.y = (float)rand()/float(RAND_MAX) * 8.0 - 3.0;
 
         enms[i].placeEnms(enms[i].posE);
-        enms[i].sizeE.y = enms[i].sizeE.x = 0.3;    //(float)(rand() % 12)/50.0;
+        enms[i].sizeE.y = enms[i].sizeE.x = 0.7;    //(float)(rand() % 12)/50.0;
     }
 
     texDoor->loadTexture("images/door.png");
@@ -383,14 +383,14 @@ GLint _glScene::drawScene()
                 enms[i].actionTrigger = enms[i].HIT;
             }
             //Else if the Enemy is an Ogre, player is within the Attack Radius, and the Enemy has windup it's attack  ||STILL WORKING ON THIS
-            else if(!myPly->invulnerable && enms[i].id == 'o' && collided->detectCollision(0.0, 0.0, myPly->radiusPlayer, enms[i].posE.x, enms[i].posE.y, enms[i].atkRadius) && enms[i].charged){
-                enms[i].atkRange = true;
-                cout << "Swung\n";
+            //else if(!myPly->invulnerable && enms[i].id == 'o' && collided->detectCollision(0.0, 0.0, myPly->radiusPlayer, enms[i].posE.x, enms[i].posE.y, enms[i].atkRadius) && enms[i].charged){
+                //enms[i].atkRange = true;
+                //cout << "Swung\n";
                 //myPly->facingDirection = collided->enemyHitPlayer(myPly, &enms[i], backGround);
                 //myPly->actionTrigger = myPly->HIT;
                 //part->plyrBldGenerator(myPly, &enms[i]);
                 //enms[i].moveCausedByPlayer();
-            }
+            //}
             //Else if the Player is not Invulnerable and Player physically collides into an Enemy
             else if(!myPly->invulnerable && !enms[i].isAttacking && collided->detectCollision(myPly, enms[i])){
                 myPly->facingDirection = collided->enemyHitPlayer(myPly, &enms[i], backGround);
@@ -411,6 +411,25 @@ GLint _glScene::drawScene()
             //if(myPly->playerPos)
 
             enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
+
+            if(enms[i].enemyHealth <= 0){
+                if(items->notPickedUp == false && (rand() % 100) < 10){
+                    items->itemInit(8.0, 1.0);
+                    switch(items->itemType) {
+                    case 0:
+                        items->itemImage->loadTexture("images/light.png");
+                        break;
+                    case 1:
+                        items->itemImage->loadTexture("images/attack.png");
+                        break;
+                    case 2:
+                        items->itemImage->loadTexture("images/speed.png");
+                        break;
+                    }
+                }
+                eCount--;
+            }
+
             enms[i].drawEnms();                                             //Draw enemies
         }
     }
@@ -432,7 +451,7 @@ GLint _glScene::drawScene()
         //glTranslatef(0.0, 0.0, backGround1->plxPos.z);
         glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, backGround1->plxTexture->tex);
-        backGround1->renderBack(screenWidth, screenHeight);
+        //backGround1->renderBack(screenWidth, screenHeight);
     glPopMatrix();
 
 
@@ -608,14 +627,14 @@ GLint _glScene::drawScene()
                 enms[i].actionTrigger = enms[i].HIT;
             }
             //Else if the Enemy is an Ogre, player is within the Attack Radius, and the Enemy has windup it's attack
-            else if(!myPly->invulnerable && enms[i].id == 'o' && collided->detectCollision(0.0, 0.0, myPly->radiusPlayer, enms[i].posE.x, enms[i].posE.y, enms[i].atkRadius) && enms[i].charged){
-                enms[i].atkRange = true;
-                cout << "Swung\n";
+            //else if(!myPly->invulnerable && enms[i].id == 'o' && collided->detectCollision(0.0, 0.0, myPly->radiusPlayer, enms[i].posE.x, enms[i].posE.y, enms[i].atkRadius) && enms[i].charged){
+          //     enms[i].atkRange = true;
+          //      cout << "Swung\n";
                 //myPly->facingDirection = collided->enemyHitPlayer(myPly, &enms[i], backGround);
                 //myPly->actionTrigger = myPly->HIT;
                 //part->plyrBldGenerator(myPly, &enms[i]);
                 //enms[i].moveCausedByPlayer();
-            }
+            //}
             //Else if the Player is not Invulnerable and Player physically collides into an Enemy
             else if(!myPly->invulnerable && !enms[i].isAttacking && collided->detectCollision(myPly, enms[i])){
                 myPly->facingDirection = collided->enemyHitPlayer(myPly, &enms[i], backGround);
