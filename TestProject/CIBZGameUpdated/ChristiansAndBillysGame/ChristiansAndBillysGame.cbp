@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ChristiansAndBillysGame" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ChristiansAndBillysGame" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="C:/Users/ccerv/Desktop/CSCI191Games/common/bin" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ChristiansAndBillysGame" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="C:/Users/ccerv/Desktop/CSCI191Games/common/bin" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="C:/Users/ccerv/Desktop/CSCI191Games/common/include" />
+			<Add directory="include" />
+			<Add directory="src" />
+		</Compiler>
+		<Linker>
+			<Add library="../common/lib/libSOIL.a" />
+			<Add library="../common/lib/libirrKlang.a" />
+			<Add library="glut32" />
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add library="winmm" />
+			<Add library="gdi32" />
+			<Add directory="C:/Users/ccerv/Desktop/CSCI191Games/common/lib" />
+		</Linker>
+		<Unit filename="include/_arrow.h" />
+		<Unit filename="include/_collision.h" />
+		<Unit filename="include/_common.h" />
+		<Unit filename="include/_door.h" />
+		<Unit filename="include/_enemies.h" />
+		<Unit filename="include/_fonts.h" />
+		<Unit filename="include/_glLight.h" />
+		<Unit filename="include/_glScene.h" />
+		<Unit filename="include/_input.h" />
+		<Unit filename="include/_items.h" />
+		<Unit filename="include/_menu.h" />
+		<Unit filename="include/_model.h" />
+		<Unit filename="include/_onScreenButtons.h" />
+		<Unit filename="include/_parallax.h" />
+		<Unit filename="include/_particles.h" />
+		<Unit filename="include/_player.h" />
+		<Unit filename="include/_skybox.h" />
+		<Unit filename="include/_sounds.h" />
+		<Unit filename="include/_texture.h" />
+		<Unit filename="include/_timer.h" />
+		<Unit filename="include/test.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/_arrow.cpp" />
+		<Unit filename="src/_collision.cpp" />
+		<Unit filename="src/_door.cpp" />
+		<Unit filename="src/_enemies.cpp" />
+		<Unit filename="src/_fonts.cpp" />
+		<Unit filename="src/_glLight.cpp" />
+		<Unit filename="src/_glScene.cpp" />
+		<Unit filename="src/_input.cpp" />
+		<Unit filename="src/_items.cpp" />
+		<Unit filename="src/_menu.cpp" />
+		<Unit filename="src/_model.cpp" />
+		<Unit filename="src/_onScreenButtons.cpp" />
+		<Unit filename="src/_parallax.cpp" />
+		<Unit filename="src/_particles.cpp" />
+		<Unit filename="src/_player.cpp" />
+		<Unit filename="src/_skybox.cpp" />
+		<Unit filename="src/_sounds.cpp" />
+		<Unit filename="src/_texture.cpp" />
+		<Unit filename="src/_timer.cpp" />
+		<Unit filename="src/test.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

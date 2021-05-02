@@ -34,17 +34,17 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="C:/Users/Billy/OneDrive/Desktop/csci191GamesDev/common/include" />
+			<Add directory="../../../../CSCI191Games/common/include" />
 		</Compiler>
 		<Linker>
-			<Add library="../common/lib/libSOIL.a" />
-			<Add library="../common/lib/libirrKlang.a" />
+			<Add library="../../../../CSCI191Games/common/lib/libSOIL.a" />
+			<Add library="../../../../CSCI191Games/common/lib/libirrKlang.a" />
 			<Add library="glut32" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="winmm" />
 			<Add library="gdi32" />
-			<Add directory="C:/Users/Billy/OneDrive/Desktop/csci191GamesDev/common/lib" />
+			<Add directory="../../../../CSCI191Games/common/lib" />
 		</Linker>
 		<Unit filename="include/_collision.h" />
 		<Unit filename="include/_common.h" />
@@ -54,6 +54,7 @@
 		<Unit filename="include/_glLight.h" />
 		<Unit filename="include/_glScene.h" />
 		<Unit filename="include/_input.h" />
+		<Unit filename="include/_items.h" />
 		<Unit filename="include/_menu.h" />
 		<Unit filename="include/_onScreenButtons.h" />
 		<Unit filename="include/_parallax.h" />
@@ -70,6 +71,7 @@
 		<Unit filename="src/_glLight.cpp" />
 		<Unit filename="src/_glScene.cpp" />
 		<Unit filename="src/_input.cpp" />
+		<Unit filename="src/_items.cpp" />
 		<Unit filename="src/_menu.cpp" />
 		<Unit filename="src/_onScreenButtons.cpp" />
 		<Unit filename="src/_parallax.cpp" />

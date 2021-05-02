@@ -44,9 +44,9 @@ GLint _glScene::initGL()
     pauseImage->menuInit("images/pause.png"); //loads pause image
     creditImage->menuInit("images/Credits1.png"); //loads credits image
 
-    backGroundLevel1->parallaxInit("images/forest2.png");
-    backGroundLevel2->parallaxInit("images/village.png");
-    backGroundLevel3->parallaxInit("images/grasstile.png");
+    backGroundLevel1->parallaxInit("images/dungeonFloor.jpg", 10.0, 5.0);
+    backGroundLevel2->parallaxInit("images/dungeonFloor2.jpg", 10.0, 5.0);
+    backGroundLevel3->parallaxInit("images/dungeonFloor3.jpg", 10.0, 5.0);
 
     backGround->parallaxInit("images/dungeonFloor.jpg", 10.0, 5.0);
     backGround1->parallaxInit("images/visibility.png");
@@ -113,7 +113,7 @@ GLint _glScene::drawScene()
 
     glPushMatrix();
         //snds->stopAllSounds();
-        glScalef(5.0, 5.0, 1.0); //glScalef(1.3, 1.3, 1.0);
+        glScalef(3.8, 3.8, 1.0); //glScalef(1.3, 1.3, 1.0);
         landingImage->drawSquare(screenWidth, screenHeight); //draw landing image
         //menuImage->drawSquare(screenWidth, screenHeight); //draw menu image
         //snds->playSound("sounds/mistydungeon.wav"); //plays background music
@@ -129,7 +129,7 @@ GLint _glScene::drawScene()
     glPushMatrix();
         //snds->stopAllSounds();
         //snds->pauseSound("sounds/mistydungeon.wav");
-        glScalef(5.0, 5.0, 1.0);
+        glScalef(3.8, 3.8, 1.0);
         menuImage->drawSquare(screenWidth, screenHeight); //draw menu image
         //snds->playSound("sounds/mistydungeon.wav");
     glPopMatrix();
@@ -140,7 +140,7 @@ GLint _glScene::drawScene()
     if (helpLevel){
 
     glPushMatrix();
-        glScalef(5.0, 5.0, 1.0); //(0.5, 0.5, 1.0) for small, (1.3, 1.3, 1.0) for full
+        glScalef(3.8, 3.8, 1.0); //(0.5, 0.5, 1.0) for small, (1.3, 1.3, 1.0) for full
         helpImage->drawSquare(screenWidth, screenHeight); //draw menu image
     glPopMatrix();
 
@@ -149,7 +149,7 @@ GLint _glScene::drawScene()
     //Displays the credits page
     if (creditLevel){
     glPushMatrix();
-        glScalef(5.0, 5.0, 1.0);
+        glScalef(3.8, 3.8, 1.0);
         creditImage->drawSquare(screenWidth, screenHeight); //draw menu image
     glPopMatrix();
     }
@@ -158,7 +158,7 @@ GLint _glScene::drawScene()
     if(pauseLevel){
 
     glPushMatrix();
-        glScalef(5.0, 5.0, 1.0);
+        glScalef(3.8, 3.8, 1.0);
         pauseImage->drawSquare(screenWidth, screenHeight); //draw menu image
     glPopMatrix();
 
@@ -173,7 +173,7 @@ GLint _glScene::drawScene()
     glPushMatrix();
         glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, backGroundLevel1->plxTexture->tex);
-        backGroundLevel1->scroll(0.0009* myPly->speedMulti);//0.005
+        backGroundLevel1->scroll(0.005* myPly->speedMulti);//0.005
         backGroundLevel1->renderBack(screenWidth, screenHeight);
     glPopMatrix();
 
@@ -303,12 +303,14 @@ GLint _glScene::drawScene()
     }
 
     //Background1
+    /*
     glPushMatrix();
         //glTranslatef(0.0, 0.0, backGround1->plxPos.z);
         glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, backGround1->plxTexture->tex);
         backGround1->renderBack(screenWidth, screenHeight);
     glPopMatrix();
+    */
 
     //Fonts
     glPushMatrix();
@@ -326,7 +328,7 @@ GLint _glScene::drawScene()
     glPushMatrix();
         glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, backGroundLevel2->plxTexture->tex);
-        backGroundLevel2->scroll(0.0009* myPly->speedMulti);//0.005
+        backGroundLevel2->scroll(0.005* myPly->speedMulti);//0.005
         backGroundLevel2->renderBack(screenWidth, screenHeight);
     glPopMatrix();
 
@@ -382,38 +384,65 @@ GLint _glScene::drawScene()
 
     //Enemies
     for(int i = 0; i < numOfEnms; i++){
-        if(enms[i].posE.x > 5.0){
-            enms[i].actionTrigger = enms[i].LEFT;           //Enemy moving Left
-            enms[i].facingDirection = enms[i].LEFT;
-            enms[i].xSpeed = -0.004;
-        }
-        else if(enms[i].posE.x < -5.0){
-            enms[i].actionTrigger = enms[i].RIGHT;          //Enemy moving Right
-            enms[i].facingDirection = enms[i].RIGHT;
-            enms[i].xSpeed =  0.004;
-        }
-        else if(enms[i].posE.y < -5.0){
-            enms[i].actionTrigger = enms[i].UP;             //Enemy moving Up
-            enms[i].facingDirection = enms[i].UP;
-            enms[i].ySpeed =  0.004;
-        }
-        else if(enms[i].posE.y > 5.0){
-            enms[i].actionTrigger = enms[i].DOWN;           //Enemy moving Down
-            enms[i].facingDirection = enms[i].DOWN;
-            enms[i].ySpeed = -0.004;
-        }
+        if(enms[i].isAlive){
+            if(enms[i].posE.x > 5.0){
+                enms[i].actionTrigger = enms[i].LEFT;           //Enemy moving Left because hit bounding box of game
+                enms[i].facingDirection = enms[i].LEFT;
+                enms[i].xSpeed = -0.005;
+            }
+            else if(enms[i].posE.x < -5.0){
+                enms[i].actionTrigger = enms[i].RIGHT;          //Enemy moving Right because hit bounding box of game
+                enms[i].facingDirection = enms[i].RIGHT;
+                enms[i].xSpeed =  0.005;
+            }
+            else if(enms[i].posE.y < -5.0){
+                enms[i].actionTrigger = enms[i].UP;             //Enemy moving Up because hit bounding box of game
+                enms[i].facingDirection = enms[i].UP;
+                enms[i].ySpeed =  0.005;
+            }
+            else if(enms[i].posE.y > 5.0){
+                enms[i].actionTrigger = enms[i].DOWN;           //Enemy moving Down because hit bounding box of game
+                enms[i].facingDirection = enms[i].DOWN;
+                enms[i].ySpeed = -0.005;
+            }
 
-        enms[i].moveCausedByPlayer();                                   //Enemy moving in relation to Player movements: setting values for xSpeed2 and ySpeed2
-        enms[i].randAction();                                           //Random Enemy movement: setting values for xSpeed and ySpeed
-        enms[i].posE.x += (enms[i].xSpeed + (enms[i].xSpeed2* myPly->speedMulti));           //Enemy Total X movement
-        enms[i].posE.y += (enms[i].ySpeed + (enms[i].ySpeed2* myPly->speedMulti));           //Enemy Total Y movement
-        if(myPly->isAttacking && myPly->playerPos.x){
-            if(collided->detectCollision(myPly->playerPos.x, myPly->playerPos.y, myPly->radiusPlayer,
-                                          enms[i].posE.x, enms[i].posE.y, enms[i].enemyRadius));
-        }
+            enms[i].moveCausedByPlayer();                       //Enemy moving in relation to Player movements: setting values for xSpeed2 and ySpeed2
 
-        enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
-        enms[i].drawEnms();                                             //Draw enemies
+            if(collided->detectAggro(myPly, enms[i]))           //Checking if Enemy is Aware of the Player
+                enms[i].actionTrigger = enms[i].HUNT;
+            else                                                //If the Enemy is Unaware of the Player
+                enms[i].randAction();                           //Random Enemy movement: setting values for xSpeed and ySpeed
+
+            //Enemies is hit if Player is Attacking, within Attack Range, and  Player correctly Facing the Enemy
+            if(myPly->isAttacking && collided->atkCollision(myPly, enms[i]) && collided->collisionOrientation(myPly, enms[i])){
+                if(myPly->actionTrigger == myPly->HATK){
+                    enms[i].dmgTaken = myPly->HeavyDmg;
+                }
+                else{
+                    enms[i].dmgTaken = myPly->lightDmg;
+                }
+                //cout << "Enemy Health: " << enms[i].enemyHealth << endl;
+                enms[i].alreadyHit = true;
+                enms[i].actionTrigger = enms[i].HIT;
+            }
+            //Else if the Player is not Invulnerable and Player within Enemies' Attack Range
+            else if(!myPly->invulnerable && !enms[i].isAttacking && collided->detectCollision(myPly, enms[i])){
+                myPly->facingDirection = collided->enemyHitPlayer(myPly, &enms[i], backGround);
+                myPly->actionTrigger = myPly->HIT;
+                if(enms[i].isAttacking)
+                    //cout << "Enemy is Attacking\n";
+
+
+                enms[i].moveCausedByPlayer();
+            }
+
+            enms[i].posE.x += (enms[i].xSpeed + (enms[i].xSpeed2* myPly->speedMulti));           //Enemy Total X movement
+            enms[i].posE.y += (enms[i].ySpeed + (enms[i].ySpeed2* myPly->speedMulti));           //Enemy Total Y movement
+            //if(myPly->playerPos)
+
+            enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
+            enms[i].drawEnms();                                             //Draw enemies
+        }
     }
 
 
@@ -441,7 +470,7 @@ GLint _glScene::drawScene()
     glPushMatrix();
         glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, backGroundLevel3->plxTexture->tex);
-        backGroundLevel3->scroll(0.0009 * myPly->speedMulti);//0.005
+        backGroundLevel3->scroll(0.005 * myPly->speedMulti);//0.005
         backGroundLevel3->renderBack(screenWidth, screenHeight);
     glPopMatrix();
 
@@ -497,38 +526,65 @@ GLint _glScene::drawScene()
 
     //Enemies
     for(int i = 0; i < numOfEnms; i++){
-        if(enms[i].posE.x > 5.0){
-            enms[i].actionTrigger = enms[i].LEFT;           //Enemy moving Left
-            enms[i].facingDirection = enms[i].LEFT;
-            enms[i].xSpeed = -0.004;
-        }
-        else if(enms[i].posE.x < -5.0){
-            enms[i].actionTrigger = enms[i].RIGHT;          //Enemy moving Right
-            enms[i].facingDirection = enms[i].RIGHT;
-            enms[i].xSpeed =  0.004;
-        }
-        else if(enms[i].posE.y < -5.0){
-            enms[i].actionTrigger = enms[i].UP;             //Enemy moving Up
-            enms[i].facingDirection = enms[i].UP;
-            enms[i].ySpeed =  0.004;
-        }
-        else if(enms[i].posE.y > 5.0){
-            enms[i].actionTrigger = enms[i].DOWN;           //Enemy moving Down
-            enms[i].facingDirection = enms[i].DOWN;
-            enms[i].ySpeed = -0.004;
-        }
+        if(enms[i].isAlive){
+            if(enms[i].posE.x > 5.0){
+                enms[i].actionTrigger = enms[i].LEFT;           //Enemy moving Left because hit bounding box of game
+                enms[i].facingDirection = enms[i].LEFT;
+                enms[i].xSpeed = -0.005;
+            }
+            else if(enms[i].posE.x < -5.0){
+                enms[i].actionTrigger = enms[i].RIGHT;          //Enemy moving Right because hit bounding box of game
+                enms[i].facingDirection = enms[i].RIGHT;
+                enms[i].xSpeed =  0.005;
+            }
+            else if(enms[i].posE.y < -5.0){
+                enms[i].actionTrigger = enms[i].UP;             //Enemy moving Up because hit bounding box of game
+                enms[i].facingDirection = enms[i].UP;
+                enms[i].ySpeed =  0.005;
+            }
+            else if(enms[i].posE.y > 5.0){
+                enms[i].actionTrigger = enms[i].DOWN;           //Enemy moving Down because hit bounding box of game
+                enms[i].facingDirection = enms[i].DOWN;
+                enms[i].ySpeed = -0.005;
+            }
 
-        enms[i].moveCausedByPlayer();                                   //Enemy moving in relation to Player movements: setting values for xSpeed2 and ySpeed2
-        enms[i].randAction();                                           //Random Enemy movement: setting values for xSpeed and ySpeed
-        enms[i].posE.x += (enms[i].xSpeed + (enms[i].xSpeed2* myPly->speedMulti));           //Enemy Total X movement
-        enms[i].posE.y += (enms[i].ySpeed + (enms[i].ySpeed2* myPly->speedMulti));           //Enemy Total Y movement
-        if(myPly->isAttacking && myPly->playerPos.x){
-            if(collided->detectCollision(myPly->playerPos.x, myPly->playerPos.y, myPly->radiusPlayer,
-                                          enms[i].posE.x, enms[i].posE.y, enms[i].enemyRadius));
-        }
+            enms[i].moveCausedByPlayer();                       //Enemy moving in relation to Player movements: setting values for xSpeed2 and ySpeed2
 
-        enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
-        enms[i].drawEnms();                                             //Draw enemies
+            if(collided->detectAggro(myPly, enms[i]))           //Checking if Enemy is Aware of the Player
+                enms[i].actionTrigger = enms[i].HUNT;
+            else                                                //If the Enemy is Unaware of the Player
+                enms[i].randAction();                           //Random Enemy movement: setting values for xSpeed and ySpeed
+
+            //Enemies is hit if Player is Attacking, within Attack Range, and  Player correctly Facing the Enemy
+            if(myPly->isAttacking && collided->atkCollision(myPly, enms[i]) && collided->collisionOrientation(myPly, enms[i])){
+                if(myPly->actionTrigger == myPly->HATK){
+                    enms[i].dmgTaken = myPly->HeavyDmg;
+                }
+                else{
+                    enms[i].dmgTaken = myPly->lightDmg;
+                }
+                //cout << "Enemy Health: " << enms[i].enemyHealth << endl;
+                enms[i].alreadyHit = true;
+                enms[i].actionTrigger = enms[i].HIT;
+            }
+            //Else if the Player is not Invulnerable and Player within Enemies' Attack Range
+            else if(!myPly->invulnerable && !enms[i].isAttacking && collided->detectCollision(myPly, enms[i])){
+                myPly->facingDirection = collided->enemyHitPlayer(myPly, &enms[i], backGround);
+                myPly->actionTrigger = myPly->HIT;
+                if(enms[i].isAttacking)
+                    //cout << "Enemy is Attacking\n";
+
+
+                enms[i].moveCausedByPlayer();
+            }
+
+            enms[i].posE.x += (enms[i].xSpeed + (enms[i].xSpeed2* myPly->speedMulti));           //Enemy Total X movement
+            enms[i].posE.y += (enms[i].ySpeed + (enms[i].ySpeed2* myPly->speedMulti));           //Enemy Total Y movement
+            //if(myPly->playerPos)
+
+            enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
+            enms[i].drawEnms();                                             //Draw enemies
+        }
     }
 
 

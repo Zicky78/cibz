@@ -192,6 +192,7 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], _items* item
 
         //Door
         door->isAttacking = true;
+        snds->playSounds("sounds/sword_hit.mp3");
         break;
 
     case VK_CAPITAL:
@@ -207,6 +208,7 @@ void _input::moveEnv(_parallax* plx, _player* ply, _enemies enem[], _items* item
 
         //Door
         door->isAttacking = true;
+        snds->playSounds("sounds/sword_hit.mp3");
         break;
     }
 }
@@ -401,6 +403,8 @@ void _input::mouseDown(_player* ply, _parallax* plx, float x, float y, _door* do
         //Door
         door->isAttacking = true;
 
+        snds->playSounds("sounds/sword_hit.mp3");
+
         break;
 
     case MK_RBUTTON:
@@ -411,6 +415,8 @@ void _input::mouseDown(_player* ply, _parallax* plx, float x, float y, _door* do
 
         //Door
         door->isAttacking = true;
+
+        snds->playSounds("sounds/sword_hit.mp3");
 
         break;
     }
