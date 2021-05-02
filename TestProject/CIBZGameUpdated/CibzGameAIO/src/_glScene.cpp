@@ -655,6 +655,25 @@ GLint _glScene::drawScene()
             //if(myPly->playerPos)
 
             enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
+
+            if(enms[i].enemyHealth <= 0){
+                if(items->notPickedUp == false && (rand() % 100) < 10){
+                    items->itemInit(8.0, 1.0);
+                    switch(items->itemType) {
+                    case 0:
+                        items->itemImage->loadTexture("images/light.png");
+                        break;
+                    case 1:
+                        items->itemImage->loadTexture("images/attack.png");
+                        break;
+                    case 2:
+                        items->itemImage->loadTexture("images/speed.png");
+                        break;
+                    }
+                }
+                eCount--;
+            }
+
             enms[i].drawEnms();                                             //Draw enemies
         }
     }
@@ -878,6 +897,25 @@ GLint _glScene::drawScene()
             //if(myPly->playerPos)
 
             enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
+
+            if(enms[i].enemyHealth <= 0){
+                if(items->notPickedUp == false && (rand() % 100) < 10){
+                    items->itemInit(8.0, 1.0);
+                    switch(items->itemType) {
+                    case 0:
+                        items->itemImage->loadTexture("images/light.png");
+                        break;
+                    case 1:
+                        items->itemImage->loadTexture("images/attack.png");
+                        break;
+                    case 2:
+                        items->itemImage->loadTexture("images/speed.png");
+                        break;
+                    }
+                }
+                eCount--;
+            }
+
             enms[i].drawEnms();                                             //Draw enemies
         }
     }
