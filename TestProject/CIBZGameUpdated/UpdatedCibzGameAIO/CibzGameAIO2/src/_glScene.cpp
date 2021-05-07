@@ -76,13 +76,16 @@ GLint _glScene::initGL()
             cout << "2 item" << endl;
             items->itemImage->loadTexture("images/speed.png");
             break;
+        case 3:
+            items->xMax = 1.0;
+            items->itemImage->loadTexture("images/heart.png");
         }
 
         //Enemies
         numOfSumn = 0;
 
         //Visibility
-        backGround1->parallaxInit("images/visibility.png");
+        backGround1->parallaxInit("images/visibility1.png");
         backGround1->plxPos.z = -2.0;
 
         //Door
@@ -113,6 +116,22 @@ GLint _glScene::initGL()
 
         texItems[2].loadTexture("images/speed.png");
         ui->texI[2] = texItems[2].tex;
+
+        //Item Counter
+
+        iCount[0] = 0;
+        iCount[1] = 0;
+        iCount[2] = 0;
+
+        iCounter0->initFonts("images/fantasyfont.png");
+        iCounter1->initFonts("images/fantasyfont.png");
+        iCounter2->initFonts("images/fantasyfont.png");
+        string itemString = "x0";
+        char iArr[itemString.size() + 1];
+        strcpy(iArr, itemString.c_str());
+        iCounter0->buildFont(iArr, 9.0);
+        iCounter1->buildFont(iArr, 9.0);
+        iCounter2->buildFont(iArr, 9.0);
 
         //Shaders
         shd->initShader("shaders/v.vs", "shaders/f.fs");
@@ -212,6 +231,7 @@ GLint _glScene::initGL()
     }
     else if(menu->liveLevel3){
         backGroundLevel1->parallaxInit("images/level3.jpg");
+        backGround1->parallaxInit("images/visibility2.png");
         xPlayingField = yPlayingField = 25.0;
 
         fnts->buildFont("Level 3", 9.0);
@@ -269,6 +289,7 @@ GLint _glScene::initGL()
     }
     else if(menu->liveLevel4){
         backGroundLevel1->parallaxInit("images/level4.jpg");
+        backGround1->parallaxInit("images/visibility3.png");
         xPlayingField = yPlayingField = 30.0;
 
         fnts->buildFont("Level 4", 9.0);
@@ -336,6 +357,7 @@ GLint _glScene::initGL()
     }
     else if(menu->liveLevel5){
         backGroundLevel1->parallaxInit("images/level5.jpg");
+        backGround1->parallaxInit("images/visibility4.png");
         xPlayingField = yPlayingField = 30.0;
 
         fnts->buildFont("Level 5", 9.0);
@@ -487,7 +509,7 @@ GLint _glScene::drawScene()
 
     glPushMatrix();
         //snds->stopAllSounds();
-        glScalef(4.0, 4.0, 1.0); //glScalef(1.3, 1.3, 1.0);
+        glScalef(3.9, 3.9, 1.0); //glScalef(1.3, 1.3, 1.0);
         glBindTexture(GL_TEXTURE_2D, menu->landingImage->tex);
         menu->drawSquare(screenWidth, screenHeight, 'l'); //draw landing image
         //menuImage->drawSquare(screenWidth, screenHeight); //draw menu image
@@ -504,7 +526,7 @@ GLint _glScene::drawScene()
     glPushMatrix();
         //snds->stopAllSounds();
         //snds->pauseSound("sounds/mistydungeon.wav");
-        glScalef(4.0, 4.0, 1.0); //glScalef(5.0, 5.0, 1.0);
+        glScalef(3.9, 3.9, 1.0); //glScalef(5.0, 5.0, 1.0);
         glBindTexture(GL_TEXTURE_2D, menu->menuImage->tex);
         menu->drawSquare(screenWidth, screenHeight, 'm'); //draw menu image
         //snds->playSound("sounds/mistydungeon.wav");
@@ -525,7 +547,7 @@ GLint _glScene::drawScene()
     //Displays new Menu (from pause)
     if(menu->newMenu){
     glPushMatrix();
-        glScalef(4.0, 4.0, 1.0);
+        glScalef(3.9, 3.9, 1.0);
         glBindTexture(GL_TEXTURE_2D, menu->newMenuImage->tex);
         menu->drawSquare(screenWidth, screenHeight, 'r'); //draw menu image
         //resumeBtn->drawButton();
@@ -541,7 +563,7 @@ GLint _glScene::drawScene()
     if(menu->pauseLevel){
 
     glPushMatrix();
-        glScalef(4.0, 4.0, 1.0); //(0.5, 0.5, 1.0) for small, (1.3, 1.3, 1.0) for full
+        glScalef(3.9, 3.9, 1.0); //(0.5, 0.5, 1.0) for small, (1.3, 1.3, 1.0) for full
         glBindTexture(GL_TEXTURE_2D, menu->pauseImage->tex);
         menu->drawSquare(screenWidth, screenHeight, 'p'); //draw menu image
         //pauseQuitBtn->drawButton();
@@ -634,29 +656,69 @@ GLint _glScene::drawScene()
     //Items
     glPushMatrix();
         glBindTexture(GL_TEXTURE_2D, items->itemImage->tex);
+        if(items->itemType == 3){
+            glScalef(2.0, 1.2, 1.0);
+        }
         if(items->notPickedUp){
             items->itemScroll(0.007 * myPly->speedMulti);
             items->drawItem();
         }
 
         if(items->iT->getTicks() > 100) {
-        items->xMin += 1.0/8.0;
-        items->xMax += 1.0/8.0;
+            if(items->itemType!=3){
+                items->xMin += 1.0/8.0;
+                items->xMax += 1.0/8.0;
+            }
 
         if(collided->detectItem(myPly->playerPos.x, myPly->playerPos.y, myPly->radiusPlayer, items->itemPos.x, items->itemPos.y, items->itemRadius) && items->notPickedUp) {
+            iCount[0]++;
             switch(items->itemType) {
             case 0:
-                backGround1->parallaxInit("images/visibility2.png");
+                switch(menu->currLevel){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    if(iCount[0] >= 1) {
+                        backGround1->parallaxInit("images/visibility1.png");
+                    }
+                break;
+                case 4:
+                    if(iCount[0] >= 2) {
+                        backGround1->parallaxInit("images/visibility1.png");
+                    } else if(iCount[0] == 1) {
+                        backGround1->parallaxInit("images/visibility2.png");
+                    }
+                break;
+                case 5:
+                    if(iCount[0] >= 3) {
+                        backGround1->parallaxInit("images/visibility1.png");
+                    } else if(iCount[0] == 2) {
+                        backGround1->parallaxInit("images/visibility2.png");
+                    } else if(iCount[0] == 1) {
+                        backGround1->parallaxInit("images/visibility3.png");
+                    }
+                }
                 items->notPickedUp = false;
-                cout << "LIGHT" << endl;
+
+                //cout << "LIGHT" << endl;
                 break;
             case 1:
                 myPly->lightDmg += 1.0;
                 myPly->HeavyDmg += 1.0;
+                iCount[1]++;
                 items->notPickedUp = false;
                 break;
             case 2:
                 myPly->speedMulti += 1.0;
+                iCount[2]++;
+                items->notPickedUp = false;
+                break;
+            case 3:
+                if(myPly->health < 10) {
+                    myPly->health +=1;
+                }
                 items->notPickedUp = false;
                 break;
             }
@@ -844,7 +906,7 @@ GLint _glScene::drawScene()
             enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
 
             if(enms[i].enemyHealth <= 0){
-                if(items->notPickedUp == false && (rand() % 100) < 10){
+                if(items->notPickedUp == false && (rand() % 100) < 20){
                     items->itemInit(8.0, 1.0);
                     switch(items->itemType) {
                     case 0:
@@ -855,6 +917,9 @@ GLint _glScene::drawScene()
                         break;
                     case 2:
                         items->itemImage->loadTexture("images/speed.png");
+                        break;
+                    case 3:
+                        items->itemImage->loadTexture("images/heart.png");
                         break;
                     }
                 }
@@ -918,6 +983,24 @@ GLint _glScene::drawScene()
         strcpy(eRe, eRemain.c_str());
         eCounter->buildFont(eRe, 9.0);
 
+        string itemString = "x";
+        itemString+= to_string(iCount[0]);
+        char iArr[itemString.size() + 1];
+        strcpy(iArr, itemString.c_str());
+        iCounter0->buildFont(iArr, 9.0);
+
+        itemString = "x";
+        itemString+= to_string(iCount[1]);
+
+        strcpy(iArr, itemString.c_str());
+        iCounter1->buildFont(iArr, 9.0);
+
+        itemString = "x";
+        itemString+= to_string(iCount[2]);
+
+        strcpy(iArr, itemString.c_str());
+        iCounter2->buildFont(iArr, 9.0);
+
         ui->uiT->resetTime();
     }
 
@@ -929,7 +1012,8 @@ GLint _glScene::drawScene()
     glPushMatrix();
         //Need to make use an expendable character to translate line of character
         glColor3f(1.0, 0.0, 0.0);
-        glTranslatef(-9.0, 4.0, 1.0);
+        glTranslatef(-6.8, 3.2, 1.0);
+        glScalef(0.65, 0.65, 0.65);
         fnts->drawFonts();
     glPopMatrix();
 
@@ -940,6 +1024,28 @@ GLint _glScene::drawScene()
         glTranslatef(3.7, 1.7, 1.0);
         glScalef(0.25, 0.25, 0.25);
         eCounter->drawFonts();
+    glPopMatrix();
+
+    //Item Counter
+    glPushMatrix();
+        glColor3f(1.0, 0.0, 0.0);
+        glTranslatef(4.2, 2.35, 1.0);
+        glScalef(0.25, 0.25, 0.25);
+        iCounter0->drawFonts();
+    glPopMatrix();
+
+    glPushMatrix();
+        glColor3f(1.0, 0.0, 0.0);
+        glTranslatef(5.0, 2.35, 1.0);
+        glScalef(0.25, 0.25, 0.25);
+        iCounter1->drawFonts();
+    glPopMatrix();
+
+    glPushMatrix();
+        glColor3f(1.0, 0.0, 0.0);
+        glTranslatef(5.8, 2.35, 1.0);
+        glScalef(0.25, 0.25, 0.25);
+        iCounter2->drawFonts();
     glPopMatrix();
 
     if(!menu->doneLoading){

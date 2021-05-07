@@ -298,3 +298,11 @@
 1619919912 source:c:\users\billy\onedrive\desktop\csci191gamesdev\cibzgameaio\src\_ui.cpp
 	"_ui.h"
 
+1620333447 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\cibzgameaio\main.cpp
+	<windows.h>
+	<_glScene.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+

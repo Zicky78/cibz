@@ -112,6 +112,10 @@ class _glScene
         _texture texItems[3];
         _fonts *eCounter = new _fonts();
         int eCount;
+        int iCount[3];
+        _fonts *iCounter0 = new _fonts();
+        _fonts *iCounter1 = new _fonts();
+        _fonts *iCounter2 = new _fonts();
 
         _particles *part = new _particles();
         _shaders *shd = new _shaders();
