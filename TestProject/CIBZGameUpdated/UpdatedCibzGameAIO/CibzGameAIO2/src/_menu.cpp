@@ -74,5 +74,7 @@ void _menu::menuInit() //char* fileName
     transition3->loadTexture("images/previewLevel3.png");
     transition4->loadTexture("images/previewLevel4.png");
     transition5->loadTexture("images/previewLevel5.png");
+    gameOverImage->loadTexture("images/GameOver.png");
+    gameWinImage->loadTexture("images/GameWin.png");
 
 }

@@ -220,7 +220,7 @@ BOOL CreateGLWindow(char* title, int width, int height, int bits, bool fullscree
 	ShowWindow(hWnd,SW_SHOW);						// Show The Window
 	SetForegroundWindow(hWnd);						// Slightly Higher Priority
 	SetFocus(hWnd);									// Sets Keyboard Focus To The Window
-	//Scene->resizeGLScene(width, height);			// Set Up Our Perspective GL Screen
+	Scene->resizeGLScene(width, height);			// Set Up Our Perspective GL Screen
 
 	if (!Scene->initGL())							// Initialize Our Newly Created GL Window
 	{

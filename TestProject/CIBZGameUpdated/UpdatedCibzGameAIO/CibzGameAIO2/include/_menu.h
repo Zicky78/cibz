@@ -49,6 +49,8 @@ class _menu
 
         bool holding;
         int currLevel;
+        bool gameOver = false;
+        bool gameWin = false;
 
         bool landing = true;
 
@@ -64,6 +66,8 @@ class _menu
         _texture *transition3 = new _texture();
         _texture *transition4 = new _texture();
         _texture *transition5 = new _texture();
+        _texture *gameOverImage = new _texture();
+        _texture *gameWinImage = new _texture();
 
         float xMax,yMax,xMin,yMin;     //  For texture coordinates
 

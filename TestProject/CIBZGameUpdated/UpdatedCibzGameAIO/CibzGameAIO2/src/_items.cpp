@@ -39,7 +39,7 @@ void _items::itemInit(float xFrames, float yFrames)
     notPickedUp = true;
 
     itemType = rand() % 4;
-    //itemType = 0;
+    //itemType = 2;
 
     iT->startTimer();
 

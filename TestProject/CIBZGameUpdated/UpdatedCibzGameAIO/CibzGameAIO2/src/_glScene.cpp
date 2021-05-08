@@ -523,6 +523,8 @@ GLint _glScene::drawScene()
     //Displays Menu Image
     if(menu->menuLevel){
 
+    menu->gameOver = false;
+    myPly->health = 10;
     glPushMatrix();
         //snds->stopAllSounds();
         //snds->pauseSound("sounds/mistydungeon.wav");
@@ -634,6 +636,23 @@ GLint _glScene::drawScene()
     glPopMatrix();
     }
 
+    if(menu->gameOver){
+        glPushMatrix();
+        snds->stopAllSounds();
+        //snds->playSounds("sounds/gameover.wav");
+        glScalef(3.9,3.9,1.0);
+        glBindTexture(GL_TEXTURE_2D, menu->gameOverImage->tex);
+        menu->drawSquare(screenWidth, screenHeight, 'c'); //draw menu image
+        glPopMatrix();
+    }
+
+    if(menu->gameWin){
+        glPushMatrix();
+        glScalef(3.9,3.9,1.0);
+        glBindTexture(GL_TEXTURE_2D, menu->gameWinImage->tex);
+        menu->drawSquare(screenWidth, screenHeight, 'c'); //draw menu image
+        glPopMatrix();
+    }
 
 
 
@@ -642,6 +661,14 @@ GLint _glScene::drawScene()
     //if(menu->liveLevel1){ //Level 1 Setup
     if(!menu->landing && !menu->menuLevel && !menu->newMenu && !menu->pauseLevel && !menu->creditLevel && !menu->helpLevel
        && !menu->tran1 && !menu->tran2 && !menu->tran3 && !menu->tran4 && !menu->tran5){
+
+    if (myPly->health <= 0){
+        menu->gameOver = true;
+    }
+    else if (menu->liveLevel5 && eCount == 0){
+        menu->gameWin = true;
+        menu->liveLevel5 = true;
+    }
 
     //Background
     glPushMatrix();
@@ -978,7 +1005,7 @@ GLint _glScene::drawScene()
         ui->xMaxI += 1.0/8.0;
 
         string eRemain = "Enemies Remaining: ";
-        eRemain += to_string(eCount);
+        eRemain += to_string(eCount + numOfSumn);
         char eRe[eRemain.size() +1];
         strcpy(eRe, eRemain.c_str());
         eCounter->buildFont(eRe, 9.0);
@@ -1006,7 +1033,44 @@ GLint _glScene::drawScene()
 
     ui->drawUIItems();
 
-
+    if(collided->detectCollision(0.0, 0.0, myPly->radiusPlayer, door->posE.x, door->posE.y, door->enemyRadius)){
+        if(menu->liveLevel1){
+            snds->stopAllSounds();
+            menu->liveLevel1 = false;
+            menu->tran2 = true;
+            snds->playMusic("sounds/level2music.mp3");
+            menu->currLevel = 2;
+            door->posE.x = 5.0;
+            door->posE.y = 5.0;
+        }
+        else if(menu->liveLevel2){
+            snds->stopAllSounds();
+            menu->liveLevel2 = false;
+            menu->tran3 = true;
+            snds->playMusic("sounds/level2music.mp3");
+            menu->currLevel = 3;
+            door->posE.x = 5.0;
+            door->posE.y = 5.0;
+        }
+        else if(menu->liveLevel3){
+            snds->stopAllSounds();
+            menu->liveLevel3 = false;
+            menu->tran4 = true;
+            snds->playMusic("sounds/level3music.mp3");
+            menu->currLevel = 4;
+            door->posE.x = 5.0;
+            door->posE.y = 5.0;
+        }
+        else if(menu->liveLevel4){
+            snds->stopAllSounds();
+            menu->liveLevel4 = false;
+            menu->tran5 = true;
+            snds->playMusic("sounds/foyermusic.mp3");
+            menu->currLevel = 5;
+            door->posE.x = 5.0;
+            door->posE.y = 5.0;
+        }
+    }
 
     //Fonts
     glPushMatrix();

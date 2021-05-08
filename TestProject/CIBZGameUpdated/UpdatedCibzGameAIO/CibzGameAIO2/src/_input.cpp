@@ -23,7 +23,7 @@ void _input::menuNav(_sounds *snds, _menu *menu)
     case VK_RETURN: //if user presses enter, go to menu
 
         //transition cases
-        if(!menu->landing){
+        if(!menu->landing && !menu->gameOver && !menu->gameWin){
             if(menu->tran1){
                 menu->liveLevel1 = true;
                 menu->tran1 = false;
@@ -47,22 +47,31 @@ void _input::menuNav(_sounds *snds, _menu *menu)
             menu->doneLoading = false;
         }
         else {
-            snds->stopAllSounds();
             //Scene->liveLevel1 = ! Scene->liveLevel1; //true
 
-            // Scene->menuLevel = ! Scene->menuLevel; //false
-            menu->menuLevel = true;
-            menu->landing = false;
+        // Scene->menuLevel = ! Scene->menuLevel; //false
+        menu->gameOver = false;
+        menu->gameWin = false;
 
-            menu->pauseLevel = false; //enter main menu from pause
+        menu->liveLevel1 = false;
+        menu->liveLevel2 = false;
+        menu->liveLevel3 = false;
+        menu->liveLevel4 = false;
+        menu->liveLevel5 = false;
 
-            // Scene->landing = ! Scene->landing;
-            //cout << Scene->menuLevel << endl;
-            //menu->doneLoading = false; //false
+        menu->menuLevel = true;
+        menu->landing = false;
 
-            //Scene->snds->stopAllSounds();
-            //Scene->snds->playMusic("sounds/mistydungeon.wav");
-            snds->playMusic("sounds/mistydungeon.mp3");
+
+        menu->pauseLevel = false; //enter main menu from pause
+
+        // Scene->landing = ! Scene->landing;
+        //cout << Scene->menuLevel << endl;
+        menu->doneLoading = false; //false
+
+        //Scene->snds->stopAllSounds();
+        //Scene->snds->playMusic("sounds/mistydungeon.wav");
+        snds->playMusic("sounds/mistydungeon.mp3");
         }
         break;
 
@@ -206,6 +215,17 @@ void _input::menuNav(_sounds *snds, _menu *menu)
         snds->playMusic("sounds/level3music.mp3"); //change to level 5 music
         menu->currLevel = 5;
         break;
+    case 0x36: //if user presses 6, start level 6 (Win)
+        snds->stopAllSounds();
+        menu->liveLevel5 = false;
+
+        menu->gameWin = true;
+        //menu->landing = true;
+
+        menu->doneLoading = false; //false
+        snds->playMusic("sounds/gamewin.mp3"); //change to level 5 music
+        menu->currLevel = 6;
+    break;
 
     }
 
