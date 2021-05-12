@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug" />
+	<File name="include\_enemies.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1193" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\_glScene.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4599" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\_enemies.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="848" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="36" />
+			<Collapse line="65" />
+			<Collapse line="76" />
+			<Collapse line="168" />
+			<Collapse line="286" />
+			<Collapse line="435" />
+			<Collapse line="491" />
+			<Collapse line="546" />
+			<Collapse line="612" />
+			<Collapse line="673" />
+			<Collapse line="775" />
+			<Collapse line="877" />
+			<Collapse line="979" />
+			<Collapse line="1083" />
+			<Collapse line="1123" />
+			<Collapse line="1163" />
+			<Collapse line="1196" />
+			<Collapse line="1233" />
+			<Collapse line="1273" />
+			<Collapse line="1313" />
+			<Collapse line="1346" />
+			<Collapse line="1383" />
+			<Collapse line="1423" />
+			<Collapse line="1463" />
+			<Collapse line="1496" />
+			<Collapse line="1533" />
+			<Collapse line="1559" />
+			<Collapse line="1585" />
+			<Collapse line="1611" />
+			<Collapse line="1643" />
+			<Collapse line="1663" />
+			<Collapse line="1685" />
+			<Collapse line="1707" />
+			<Collapse line="1732" />
+			<Collapse line="1758" />
+			<Collapse line="1784" />
+			<Collapse line="1810" />
+			<Collapse line="1860" />
+			<Collapse line="1864" />
+			<Collapse line="2010" />
+			<Collapse line="2088" />
+			<Collapse line="2163" />
+			<Collapse line="2167" />
+			<Collapse line="2295" />
+			<Collapse line="2373" />
+			<Collapse line="2448" />
+			<Collapse line="2452" />
+			<Collapse line="2593" />
+			<Collapse line="2674" />
+			<Collapse line="2678" />
+			<Collapse line="2760" />
+			<Collapse line="2842" />
+			<Collapse line="2846" />
+			<Collapse line="2947" />
+			<Collapse line="3024" />
+			<Collapse line="3098" />
+			<Collapse line="3103" />
+			<Collapse line="3106" />
+			<Collapse line="3123" />
+			<Collapse line="3141" />
+			<Collapse line="3144" />
+			<Collapse line="3161" />
+			<Collapse line="3195" />
+			<Collapse line="3198" />
+			<Collapse line="3215" />
+			<Collapse line="3233" />
+			<Collapse line="3236" />
+			<Collapse line="3253" />
+			<Collapse line="3273" />
+			<Collapse line="3276" />
+			<Collapse line="3293" />
+			<Collapse line="3311" />
+			<Collapse line="3314" />
+			<Collapse line="3331" />
+			<Collapse line="3351" />
+			<Collapse line="3354" />
+			<Collapse line="3371" />
+			<Collapse line="3389" />
+			<Collapse line="3392" />
+			<Collapse line="3409" />
+			<Collapse line="3429" />
+			<Collapse line="3432" />
+			<Collapse line="3449" />
+			<Collapse line="3467" />
+			<Collapse line="3470" />
+			<Collapse line="3487" />
+			<Collapse line="3507" />
+			<Collapse line="3510" />
+			<Collapse line="3527" />
+			<Collapse line="3545" />
+			<Collapse line="3548" />
+			<Collapse line="3565" />
+			<Collapse line="3585" />
+			<Collapse line="3588" />
+			<Collapse line="3605" />
+			<Collapse line="3623" />
+			<Collapse line="3626" />
+			<Collapse line="3643" />
+			<Collapse line="3679" />
+		</Folding>
+	</File>
+	<File name="src\_collision.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1971" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\_input.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="60" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\_door.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="615" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\_glScene.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="29498" topLine="240" />
+		</Cursor>
+		<Folding>
+			<Collapse line="38" />
+		</Folding>
+	</File>
+	<File name="src\_door.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4311" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="25" />
+			<Collapse line="30" />
+			<Collapse line="137" />
+		</Folding>
+	</File>
+</CodeBlocks_layout_file>

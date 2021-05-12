@@ -1002,3 +1002,221 @@
 1620427414 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_shaders.cpp
 	"_shaders.h"
 
+1620436817 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\main.cpp
+	<windows.h>
+	<_glScene.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1620436817 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_glscene.h
+	<GL/glew.h>
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<_input.h>
+	<_texture.h>
+	<_parallax.h>
+	<_player.h>
+	<_enemies.h>
+	<_timer.h>
+	<_fonts.h>
+	<_collision.h>
+	<_sounds.h>
+	<_menu.h>
+	<_door.h>
+	<_items.h>
+	<_onScreenButtons.h>
+	<_particles.h>
+	<_ui.h>
+	<cstring>
+	<_shaders.h>
+
+1620422044 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_input.h
+	<windows.h>
+	<_model.h>
+	<_parallax.h>
+	<_player.h>
+	<math.h>
+	<_timer.h>
+	<_enemies.h>
+	<_door.h>
+	<_items.h>
+	<_sounds.h>
+	<_menu.h>
+	<_onScreenButtons.h>
+	<_particles.h>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_model.h
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_parallax.h
+	<string>
+	<GL/gl.h>
+	<_texture.h>
+	<_common.h>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_texture.h
+	<SOIL.h>
+	<GL/gl.h>
+	<iostream>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_common.h
+	<math.h>
+
+1620369902 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_player.h
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+	<iostream>
+	<_timer.h>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_timer.h
+	<time.h>
+
+1620276056 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_enemies.h
+	<_common.h>
+	<_texture.h>
+	<_timer.h>
+	<GL/gl.h>
+	<string>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_door.h
+	<_common.h>
+	<_texture.h>
+	<_timer.h>
+	<GL/gl.h>
+
+1620804879 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_items.h
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+	<_timer.h>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_sounds.h
+	<iostream>
+	<SNDS/irrKlang.h>
+
+1620436817 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_menu.h
+	<iostream>
+	<string>
+	<gl/gl.h>
+	<windows.h>
+	<_texture.h>
+
+1620286489 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_onscreenbuttons.h
+	<GL/gl.h>
+	<_common.h>
+	<_texture.h>
+	<string>
+
+1620372137 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_particles.h
+	<math.h>
+	<GL/gl.h>
+	<_timer.h>
+	<stdlib.h>
+	<_player.h>
+	<_enemies.h>
+	<_collision.h>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_collision.h
+	<math.h>
+	<iostream>
+	<_player.h>
+	<_enemies.h>
+	<_parallax.h>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_fonts.h
+	<iostream>
+	<string.h>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_ui.h
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+	<_timer.h>
+
+1620168809 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_shaders.h
+	<GL/glew.h>
+	<string>
+	<iostream>
+	<fstream>
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_collision.cpp
+	"_collision.h"
+
+1620404798 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_door.cpp
+	"_door.h"
+
+1620375299 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_enemies.cpp
+	"_enemies.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_fonts.cpp
+	"_fonts.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_gllight.cpp
+	"_glLight.h"
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_gllight.h
+	<_glScene.h>
+
+1620436817 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_glscene.cpp
+	"_glScene.h"
+	<_glLight.h>
+	<SOIL.h>
+
+1620436817 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_input.cpp
+	"_input.h"
+
+1620436817 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_items.cpp
+	"_items.h"
+
+1620436817 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_menu.cpp
+	"_menu.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_model.cpp
+	"_model.h"
+
+1620286621 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_onscreenbuttons.cpp
+	"_onScreenButtons.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_parallax.cpp
+	"_parallax.h"
+
+1620375644 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_particles.cpp
+	"_particles.h"
+
+1620374101 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_player.cpp
+	"_player.h"
+
+1619482415 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_shaders.cpp
+	"_shaders.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_skybox.cpp
+	"_skybox.h"
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\_skybox.h
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_sounds.cpp
+	"_sounds.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_texture.cpp
+	"_texture.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_timer.cpp
+	"_timer.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\_ui.cpp
+	"_ui.h"
+
+1619932679 source:c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\src\test.cpp
+	"test.h"
+
+1619932679 c:\users\billy\onedrive\desktop\cibz\testproject\cibzgameupdated\updatedcibzgameaio\cibzgameaio2\include\test.h
+
