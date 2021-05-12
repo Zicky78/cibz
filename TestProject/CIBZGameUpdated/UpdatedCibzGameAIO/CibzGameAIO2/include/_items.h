@@ -27,9 +27,13 @@ class _items
 
         bool notPickedUp;
 
+        //initializes a new item with a random item type and random location
         void itemInit(float, float);
+        //draws the item
         void drawItem();
+        //accounts for the player moving
         void itemScroll(float);
+
         bool lFlag, rFlag, uFlag, dFlag;
         bool isDodging, isAttacking;
         bool isBlocking;

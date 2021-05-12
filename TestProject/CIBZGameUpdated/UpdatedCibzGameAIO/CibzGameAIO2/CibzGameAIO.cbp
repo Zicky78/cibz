@@ -32,19 +32,20 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="C:/Users/ccerv/Desktop/CSCI191Games/common/include" />
+			<Add directory="../../../../../../CSCI191Games/common/include" />
 			<Add directory="include" />
 			<Add directory="src" />
 		</Compiler>
 		<Linker>
-			<Add library="../common/lib/libSOIL.a" />
-			<Add library="../common/lib/libirrKlang.a" />
+			<Add library="../../../../../../CSCI191Games/common/lib/libSOIL.a" />
+			<Add library="../../../../../../CSCI191Games/common/lib/glew32s.lib" />
+			<Add library="../../../../../../CSCI191Games/common/lib/libirrKlang.a" />
 			<Add library="glut32" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="winmm" />
 			<Add library="gdi32" />
-			<Add directory="C:/Users/ccerv/Desktop/CSCI191Games/common/lib" />
+			<Add directory="../../../../../../CSCI191Games/common/lib" />
 		</Linker>
 		<Unit filename="include/_arrow.h" />
 		<Unit filename="include/_collision.h" />
@@ -62,6 +63,7 @@
 		<Unit filename="include/_parallax.h" />
 		<Unit filename="include/_particles.h" />
 		<Unit filename="include/_player.h" />
+		<Unit filename="include/_shaders.h" />
 		<Unit filename="include/_skybox.h" />
 		<Unit filename="include/_sounds.h" />
 		<Unit filename="include/_texture.h" />
@@ -84,6 +86,7 @@
 		<Unit filename="src/_parallax.cpp" />
 		<Unit filename="src/_particles.cpp" />
 		<Unit filename="src/_player.cpp" />
+		<Unit filename="src/_shaders.cpp" />
 		<Unit filename="src/_skybox.cpp" />
 		<Unit filename="src/_sounds.cpp" />
 		<Unit filename="src/_texture.cpp" />
