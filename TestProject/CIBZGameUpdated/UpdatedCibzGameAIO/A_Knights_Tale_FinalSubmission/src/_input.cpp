@@ -65,7 +65,7 @@ void _input::menuNav(_sounds *snds, _menu *menu)
         menu->pauseLevel = false; //enter main menu from pause
 
         menu->doneLoading = false; //false
-
+        snds->stopAllSounds();
         snds->playMusic("sounds/mistydungeon.mp3");
         }
         break;

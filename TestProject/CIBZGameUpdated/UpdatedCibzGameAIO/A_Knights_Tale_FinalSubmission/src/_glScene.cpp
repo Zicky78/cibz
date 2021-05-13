@@ -233,6 +233,8 @@ GLint _glScene::initGL()
 
         fnts->buildFont("Level 2", 9.0);
 
+        iCount[0] = 0;
+
         numOfEnms = 15;
         texEnms->loadTexture("images/wolf4.png");
         for(i = 0; i < 5; i++){
@@ -288,10 +290,14 @@ GLint _glScene::initGL()
         xPlayingField = yPlayingField = 25.0;
 
         myPly->health = 10;
+        myPly->lightDmg++;
+        myPly->HeavyDmg++;
 
         isHealthLow = false;
 
         fnts->buildFont("Level 3", 9.0);
+
+        iCount[0] = 0;
 
         numOfEnms = 20;
 
@@ -363,6 +369,8 @@ GLint _glScene::initGL()
 
         fnts->buildFont("Level 4", 9.0);
 
+        iCount[0] = 0;
+
         numOfEnms = 25;
         numOfSumn = 0;
         texEnms->loadTexture("images/wolf4.png");
@@ -426,7 +434,7 @@ GLint _glScene::initGL()
         char eRe[eRemain.size() +1];
         strcpy(eRe, eRemain.c_str());
         eCounter->buildFont(eRe, 9.0);
-        cout << "ECount for level 4: " << eCount << endl;
+        //cout << "ECount for level 4: " << eCount << endl;
 
         swarmTimer->resetTime();
 
@@ -438,10 +446,14 @@ GLint _glScene::initGL()
         xPlayingField = yPlayingField = 30.0;
 
         myPly->health = 10;
+        myPly->lightDmg++;
+        myPly->HeavyDmg++;
 
         isHealthLow = false;
 
         fnts->buildFont("Level 5", 9.0);
+
+        iCount[0] = 0;
 
         numOfEnms = 30;
         numOfSumn = 0;
@@ -515,7 +527,7 @@ GLint _glScene::initGL()
         char eRe[eRemain.size() +1];
         strcpy(eRe, eRemain.c_str());
         eCounter->buildFont(eRe, 9.0);
-        cout << "ECount for level 5: " << eCount << endl;
+        //cout << "ECount for level 5: " << eCount << endl;
 
         swarmTimer->resetTime();
 
@@ -721,7 +733,8 @@ GLint _glScene::drawScene()
     glPushMatrix();
         glBindTexture(GL_TEXTURE_2D, items->itemImage->tex);
         if(items->itemType == 3){
-            //glScalef(2.0, 1.2, 1.0);
+            items->itemScale.x = 0.3;
+            items->itemScale.y = 0.2;
         }
         if(items->notPickedUp){
             items->itemScroll(0.02 * myPly->speedMulti * myPly->slowed);
@@ -1006,7 +1019,7 @@ GLint _glScene::drawScene()
             enms[i].actionsEnms();                                          //Changing Animation to match Enemy's Random movement
 
             if(enms[i].enemyHealth <= 0){
-                if(items->notPickedUp == false && (rand() % 100) < 20){
+                if(items->notPickedUp == false && (rand() % 100) < 30){
                     items->itemInit(8.0, 1.0);
                     switch(items->itemType) {
                     case 0:
@@ -1019,6 +1032,7 @@ GLint _glScene::drawScene()
                         items->itemImage->loadTexture("images/speed.png");
                         break;
                     case 3:
+                        items->xMax = 1.0;
                         items->itemImage->loadTexture("images/heart.png");
                         break;
                     }
@@ -1064,11 +1078,11 @@ GLint _glScene::drawScene()
             part->drawProjectile();
         glPopMatrix();
         part->updateBlood(myPly->speedMulti, myPly->slowed);
-        int temp = numOfSumn;
+        sumTemp = numOfSumn;
         part->updateProjectile(myPly, enms, numOfEnms, numOfSumn, menu->liveLevel5, myPly->speedMulti, myPly->slowed);
 
         //Summon Health Bars
-        if (temp != numOfSumn) {
+        if (sumTemp != numOfSumn) {
             eCount++;
             hbarArr.push_back(_hbar());
             hbarArr.back().hbImage->loadTexture("images/healthbar.png");
@@ -1099,7 +1113,7 @@ GLint _glScene::drawScene()
         ui->xMaxI += 1.0/8.0;
 
         string eRemain = "Enemies Remaining: ";
-        eRemain += to_string(eCount + numOfSumn);
+        eRemain += to_string(eCount);
         char eRe[eRemain.size() +1];
         strcpy(eRe, eRemain.c_str());
         eCounter->buildFont(eRe, 9.0);
@@ -1141,7 +1155,7 @@ GLint _glScene::drawScene()
             snds->stopAllSounds();
             menu->liveLevel2 = false;
             menu->tran3 = true;
-            snds->playMusic("sounds/level2music.mp3");
+            snds->playMusic("sounds/level3music.mp3");
             menu->currLevel = 3;
             door->posE.x = 5.0;
             door->posE.y = 5.0;
@@ -1150,7 +1164,7 @@ GLint _glScene::drawScene()
             snds->stopAllSounds();
             menu->liveLevel3 = false;
             menu->tran4 = true;
-            snds->playMusic("sounds/level3music.mp3");
+            snds->playMusic("sounds/level4music.mp3");
             menu->currLevel = 4;
             door->posE.x = 5.0;
             door->posE.y = 5.0;
@@ -1159,7 +1173,7 @@ GLint _glScene::drawScene()
             snds->stopAllSounds();
             menu->liveLevel4 = false;
             menu->tran5 = true;
-            snds->playMusic("sounds/foyermusic.mp3");
+            snds->playMusic("sounds/level5music.mp3");
             menu->currLevel = 5;
             door->posE.x = 5.0;
             door->posE.y = 5.0;

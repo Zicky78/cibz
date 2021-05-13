@@ -688,3 +688,214 @@
 1620804879 c:\users\billy\onedrive\desktop\csci191gamesdev\cibzgameaio4\include\_gllight.h
 	<_glScene.h>
 
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\main.cpp
+	<windows.h>
+	<_glScene.h>
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<windows.h>
+
+1620871693 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_glscene.h
+	<GL/glew.h>
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<_input.h>
+	<_texture.h>
+	<_parallax.h>
+	<_player.h>
+	<_enemies.h>
+	<_timer.h>
+	<_fonts.h>
+	<_collision.h>
+	<_sounds.h>
+	<_menu.h>
+	<_door.h>
+	<_items.h>
+	<_onScreenButtons.h>
+	<_particles.h>
+	<_ui.h>
+	<cstring>
+	<_shaders.h>
+	<_hbar.h>
+	<vector>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_input.h
+	<windows.h>
+	<_parallax.h>
+	<_player.h>
+	<math.h>
+	<_timer.h>
+	<_enemies.h>
+	<_door.h>
+	<_items.h>
+	<_sounds.h>
+	<_menu.h>
+	<_onScreenButtons.h>
+	<_particles.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_parallax.h
+	<string>
+	<GL/gl.h>
+	<_texture.h>
+	<_common.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_texture.h
+	<SOIL.h>
+	<GL/gl.h>
+	<iostream>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_common.h
+	<math.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_player.h
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+	<iostream>
+	<_timer.h>
+	<_sounds.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_timer.h
+	<time.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_sounds.h
+	<iostream>
+	<SNDS/irrKlang.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_enemies.h
+	<_common.h>
+	<_texture.h>
+	<_timer.h>
+	<GL/gl.h>
+	<string>
+	<_sounds.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_door.h
+	<_common.h>
+	<_texture.h>
+	<_timer.h>
+	<GL/gl.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_items.h
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+	<_timer.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_menu.h
+	<iostream>
+	<string>
+	<gl/gl.h>
+	<windows.h>
+	<_texture.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_onscreenbuttons.h
+	<GL/gl.h>
+	<_common.h>
+	<_texture.h>
+	<string>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_particles.h
+	<math.h>
+	<GL/gl.h>
+	<_timer.h>
+	<stdlib.h>
+	<_player.h>
+	<_enemies.h>
+	<_collision.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_collision.h
+	<math.h>
+	<iostream>
+	<_player.h>
+	<_enemies.h>
+	<_parallax.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_fonts.h
+	<iostream>
+	<string.h>
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_ui.h
+	<_common.h>
+	<_texture.h>
+	<GL/gl.h>
+	<_timer.h>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_shaders.h
+	<GL/glew.h>
+	<string>
+	<iostream>
+	<fstream>
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_hbar.h
+	<_common.h>
+	<GL/gl.h>
+	<_texture.h>
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_collision.cpp
+	"_collision.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_door.cpp
+	"_door.h"
+
+1620869162 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_enemies.cpp
+	"_enemies.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_fonts.cpp
+	"_fonts.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_gllight.cpp
+	"_glLight.h"
+
+1620863041 c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\include\_gllight.h
+	<_glScene.h>
+
+1620872242 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_glscene.cpp
+	"_glScene.h"
+	<_glLight.h>
+	<SOIL.h>
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_hbar.cpp
+	"_hbar.h"
+
+1620869996 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_input.cpp
+	"_input.h"
+
+1620870060 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_items.cpp
+	"_items.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_menu.cpp
+	"_menu.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_onscreenbuttons.cpp
+	"_onScreenButtons.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_parallax.cpp
+	"_parallax.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_particles.cpp
+	"_particles.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_player.cpp
+	"_player.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_shaders.cpp
+	"_shaders.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_sounds.cpp
+	"_sounds.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_texture.cpp
+	"_texture.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_timer.cpp
+	"_timer.h"
+
+1620863041 source:c:\users\zacha\desktop\coding stuff\csci191-project\cibz\testproject\cibzgameupdated\updatedcibzgameaio\a_knights_tale_finalsubmission\src\_ui.cpp
+	"_ui.h"
+

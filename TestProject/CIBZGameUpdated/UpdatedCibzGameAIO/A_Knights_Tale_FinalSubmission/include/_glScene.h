@@ -71,6 +71,7 @@ class _glScene
         int numOfSumn;                      //Number of Enemies Summoned
         int i, j;
         int xPlayingField, yPlayingField;   //Dimensions of the level
+        int sumTemp;
 
         _input *kbMs = new _input();
         _texture *modelTex = new _texture();

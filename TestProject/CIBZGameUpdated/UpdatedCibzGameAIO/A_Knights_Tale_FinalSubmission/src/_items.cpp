@@ -25,8 +25,8 @@ void _items::itemInit(float xFrames, float yFrames)
     yMin = 0.0;
     yMax = 1.0/yFrames;
 
-    itemPos.x = rand() % 3;
-    itemPos.y = rand() % 3;
+    itemPos.x = (rand() % 6) - 3;
+    itemPos.y = (rand() % 6) - 3;
 
     itemPos.z = -3.9;
 
@@ -38,6 +38,7 @@ void _items::itemInit(float xFrames, float yFrames)
     notPickedUp = true;
 
     itemType = rand() % 4;
+
 
     iT->startTimer();
 

@@ -121,35 +121,35 @@ void _enemies::summonEnms(float xSpwnPos, float ySpwnPos, bool level5)
             ID = 'p';
             xFrm = 6.0;
             yFrm = 4.0;
-            cout << "Plant\n";
+            //cout << "Plant\n";
         }
         else if(ranVal < 40){               //20% chance to move Right
             tempTex->loadTexture("images/mage.png");
             ID = 'm';
             xFrm = 6.0;
             yFrm = 4.0;
-            cout << "Mage\n";
+            //cout << "Mage\n";
         }
         else if(ranVal < 60){               //20% chance to move Down
             tempTex->loadTexture("images/ogre3.png");
             ID = 'o';
             xFrm = 9.0;
             yFrm = 4.0;
-            cout << "Ogre\n";
+            //cout << "Ogre\n";
         }
         else if(ranVal < 80){               //20% chance to move Down
             tempTex->loadTexture("images/screamer.png");
             ID = 's';
             xFrm = 9.0;
             yFrm = 4.0;
-            cout << "Screamer\n";
+            //cout << "Screamer\n";
         }
         else if(ranVal < 100){               //20% chance to move Up
             tempTex->loadTexture("images/wolf4.png");
             ID = 'w';
             xFrm = 5.0;
             yFrm = 13.0;
-            cout << "Wolf\n";
+            //cout << "Wolf\n";
         }
     }
 
